@@ -29,9 +29,10 @@ public:
     const std::bitset<56> START_KING {"00000000000000000000000000010000000000000000000000000000"};
     const std::bitset<56> START_WHITE {"00000000000000000001000000101000000100000000000000000000"};
 
-    const char BLACK_CHAR = '+';
-    const char WHITE_CHAR = '-';
-    const char KING_CHAR = '@';
+    const char BLACK_CHAR = 'B';
+    const char WHITE_CHAR = 'W';
+    const char KING_CHAR = 'K';
+    const char EMPTY_CHAR = ' ';
 
     enum class DirectionFlag : unsigned int {
         LEFT = 1 << 0,
@@ -83,6 +84,7 @@ public:
     const char getBlackChar(){return BLACK_CHAR;}
     const char getWhiteChar(){return WHITE_CHAR;}
     const char getKingChar(){return KING_CHAR;}
+    const char getEmptyChar(){return EMPTY_CHAR;}
 
     void Print();
 
@@ -91,9 +93,10 @@ public:
 
 public:
 
-
-
-
+//
+//    static bool getBitValueAtIndex(std::bitset<56> bitset, int index);
+//    static void setBitValueAtIndex(std::bitset<56>& bitset, bool value, int index);
+//
 
 
 };

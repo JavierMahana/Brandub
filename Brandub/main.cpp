@@ -4,8 +4,6 @@
 
 int main() {
 
-    Bitboard bitboard;
-   // bitboard.Print();
 
     Game game;
     game.gameLoop();

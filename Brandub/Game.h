@@ -36,14 +36,25 @@ public:
         a7 = 48, b7, c7, d7, e7, f7, g7,
     };
 
+//    const std::string boardMap[56]{
+//            "a1","b1","c1","d1","e1","f1","g1","SBit",
+//            "a2","b2","c2","d2","e2","f2","g2", "SBit",
+//            "a3","b3","c3","d3","e3","f3","g3","SBit",
+//            "a4","b4","c4","d4","e4","f4","g4","SBit",
+//            "a5","b5","c5","d5","e5","f5","g5","SBit",
+//            "a6","b6","c6","d6","e6","f6","g6","SBit",
+//            "a7","b7","c7","d7","e7","f7","g7","SBit"
+//    };
+
+//it is reversed because the std::bitset stores the bits in the order of least important first (reverse)
     const std::string boardMap[56]{
-            "a1","b1","c1","d1","e1","f1","g1","SBit",
-            "a2","b2","c2","d2","e2","f2","g2", "SBit",
-            "a3","b3","c3","d3","e3","f3","g3","SBit",
-            "a4","b4","c4","d4","e4","f4","g4","SBit",
-            "a5","b5","c5","d5","e5","f5","g5","SBit",
-            "a6","b6","c6","d6","e6","f6","g6","SBit",
-            "a7","b7","c7","d7","e7","f7","g7","SBit"
+            "SBit","g7","f7","e7","d7","c7","b7","a7",
+            "SBit","g6","f6","e6","d6","c6","b6","a6",
+            "SBit","g5","f5","e5","d5","c5","b5","a5",
+            "SBit","g4","f4","e4","d4","c4","b4","a4",
+            "SBit","g3","f3","e3","d3","c3","b3","a3",
+            "SBit","g2","f2","e2","d2","c2","b2","a2",
+            "SBit","g1","f1","e1","d1","c1","b1","a1"
     };
 
 

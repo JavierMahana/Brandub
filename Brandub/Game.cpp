@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <limits>
 #include "Game.h"
 
 Game::Game() {
@@ -17,45 +18,6 @@ bool Game::hasWhiteWon() const{
 bool Game::hasBlackWon() const{
     return false;
 }
-bool Game::isCorrectColorPiece(int cellIndex) const {
-    if(whiteTurn && gameBoard.getAllWhiteBits()[cellIndex])
-    {
-        return true;
-    }
-    else if(!whiteTurn && gameBoard.getBitsBlack()[cellIndex])
-    {
-        return true;
-    }
-    return false;
-}
-
-
-//hay que testear esta funcion!!! acá pueden surgir varios problemas
-//it checks if a cell index have any legal moves available and returns them in a bitset-mask
-bool Game::areLegalMoves(int cellIndex, std::bitset<56> &legalMoveMask) {
-
-    std::bitset<56> cellMask;
-    cellMask[cellIndex] = 1;
-
-    for (int i = 0; i < 4; ++i)
-    {
-        Bitboard::Direction direction = static_cast<Bitboard::Direction>(i);
-        std::bitset<56> shiftedCell = cellMask;
-        while (true)
-        {
-            shiftedCell = gameBoard.shiftDirection(shiftedCell, direction);
-            //It checks if the shifted cell is in an empty space.
-            auto legalMove = shiftedCell & gameBoard.getEmpty();
-            if(legalMove.any())
-                legalMoveMask |= legalMove;
-            else
-                break;
-        }
-
-    }
-    return legalMoveMask.any();
-}
-
 
 void Game::gameLoop() {
 
@@ -67,11 +29,12 @@ void Game::gameLoop() {
     std::cout << "White piece:" << gameBoard.getWhiteChar() << std::endl;
     std::cout << "Black piece:" << gameBoard.getBlackChar() << std::endl;
     std::cout << "King:" << gameBoard.getKingChar() << std::endl;
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl;
     gameBoard.Print();
     
     while(!hasBlackWon() && !hasWhiteWon())
     {
+
         std::string colorTurnString = whiteTurn ? "white" : "black";
 
         std::string input;
@@ -91,6 +54,8 @@ void Game::gameLoop() {
                 continue;
             }
 
+            std::cout << "Input index: "<< inputCellIndex << std::endl;
+
 
             if(!isCorrectColorPiece(inputCellIndex))
             {
@@ -104,6 +69,9 @@ void Game::gameLoop() {
                 continue;
             }
 
+            std::cin.clear();
+            //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
             //The input is valid, so we leave the while loop.
             break;
         }
@@ -111,7 +79,13 @@ void Game::gameLoop() {
 
         std::cout << "You selected the: \"" << input << "\" square" << std::endl;
         std::cout << std::endl;
-        std::cout << "Now enter the square that you want to move to, or \"q\" to select another piece." << std::endl;
+
+
+        while (true)
+        {
+            std::cout << "Now enter the square that you want to move to, or \"q\" to select another piece." << std::endl;
+            std::cin >> input;
+        }
         //do the game loop
         std::cout << "Leaving... temporal..." << std::endl;
         break;
@@ -135,6 +109,47 @@ bool Game::validInput(const std::string& input, int& cellIndex) {
     }
     return false;
 }
+
+bool Game::isCorrectColorPiece(int cellIndex) const {
+    if(whiteTurn && gameBoard.getAllWhiteBits()[cellIndex])
+    {
+        return true;
+    }
+    else if(!whiteTurn && gameBoard.getBitsBlack()[cellIndex])
+    {
+        return true;
+    }
+    return false;
+}
+
+
+
+//it checks if a cell index have any legal moves available and returns them in a bitset-mask
+bool Game::areLegalMoves(int cellIndex, std::bitset<56> &legalMoveMask) {
+
+    std::bitset<56> cellMask;
+    cellMask[cellIndex] = 1;
+    //Bitboard::setBitValueAtIndex(cellMask, 1, cellIndex);
+
+    for (int i = 0; i < 4; ++i)
+    {
+        Bitboard::Direction direction = static_cast<Bitboard::Direction>(i);
+        std::bitset<56> shiftedCell = cellMask;
+        while (true)
+        {
+            shiftedCell = gameBoard.shiftDirection(shiftedCell, direction);
+            //It checks if the shifted cell is in an empty space.
+            auto legalMove = shiftedCell & gameBoard.getEmpty();
+            if(legalMove.any())
+                legalMoveMask |= legalMove;
+            else
+                break;
+        }
+
+    }
+    return legalMoveMask.any();
+}
+
 
 
 
