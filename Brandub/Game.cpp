@@ -63,6 +63,10 @@ void Game::gameLoop() {
     std::cout << "The white player has the objective of putting the king in one of the 4 corners of the board" << std::endl;
     std::cout << "And the black player has the objective of trapping the king around 4 of his pieces" << std::endl;
     std::cout << "To capture a piece you must place 2 of your own pieces in each side" << std::endl;
+    std::cout << "Glosary" << std::endl;
+    std::cout << "White piece:" << gameBoard.getWhiteChar() << std::endl;
+    std::cout << "Black piece:" << gameBoard.getBlackChar() << std::endl;
+    std::cout << "King:" << gameBoard.getKingChar() << std::endl;
     std::cout << std::endl;
     gameBoard.Print();
     

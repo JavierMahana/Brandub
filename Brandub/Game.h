@@ -26,8 +26,6 @@ private:
 
 public:
 
-
-
     enum Board : int {
         a1 = 0, b1, c1, d1, e1, f1, g1,
         a2 = 8, b2, c2, d2, e2, f2, g2,

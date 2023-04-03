@@ -26,7 +26,20 @@ void Bitboard::Print() {
 
     int j = 0;
     for (int i = 0; i < bits_str.size(); i++) {
-        std::cout << bits_str[i];
+
+        if(getFull()[i] == bitsWhite[i]){
+            std::cout << getWhiteChar();
+        }
+        else if(getFull()[i] == bitsBlack[i]){
+            std::cout << getBlackChar();
+        }
+        else if(getFull()[i] == bitsKing[i]){
+            std::cout << getKingChar();
+        }
+        else{
+            std::cout << bits_str[i];
+        }
+
         j++;
         if(j==8){
             j = 0;
