@@ -15,35 +15,41 @@ Bitboard::Bitboard()
 
 //TODO: Print the square names.
 //   A B C D
-// 1
-// 2
-// 3
+//   _ _ _ _
+// 1|
+// 2|
+// 3|
 void Bitboard::Print() {
 
     // bitsets are usually printed according to the way in which the byte values are stored in memory
     // therefore to print our visual representation we turn it into an string
     std::string bits_str = getFull().to_string();
 
+    std::cout << "A B C D E F G" <<std::endl;
+    std::cout << "_ _ _ _ _ _ _" <<std::endl;
+    int row = 1;
     int j = 0;
     for (int i = 0; i < bits_str.size(); i++) {
 
-        if(getFull()[i] == bitsWhite[i]){
+        if(getFull()[i] != 0 && bitsWhite[i] != 0){
             std::cout << getWhiteChar();
         }
-        else if(getFull()[i] == bitsBlack[i]){
+        else if(getFull()[i] != 0 && bitsBlack[i] != 0){
             std::cout << getBlackChar();
         }
-        else if(getFull()[i] == bitsKing[i]){
+        else if(getFull()[i] != 0 && bitsKing[i] != 0){
             std::cout << getKingChar();
         }
         else{
-            std::cout << bits_str[i];
+            //std::cout << bits_str[i];
+            std::cout << ".";
         }
 
         j++;
         if(j==8){
             j = 0;
-            std::cout<<std::endl;
+            std::cout<< row << "|" <<std::endl;
+
         }
     }
 }

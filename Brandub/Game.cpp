@@ -67,7 +67,7 @@ void Game::gameLoop() {
     std::cout << "White piece:" << gameBoard.getWhiteChar() << std::endl;
     std::cout << "Black piece:" << gameBoard.getBlackChar() << std::endl;
     std::cout << "King:" << gameBoard.getKingChar() << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl << std::endl;
     gameBoard.Print();
     
     while(!hasBlackWon() && !hasWhiteWon())
@@ -81,7 +81,7 @@ void Game::gameLoop() {
         std::bitset<56> legalMoveMask;
 
         //Selection of the piece to move
-        do {
+        while (true){
             std::cout << "Enter the square of a " << colorTurnString << " piece that you want to move: ";
             std::cin >> input;
 
@@ -90,6 +90,7 @@ void Game::gameLoop() {
                 std::cout << "Invalid input! it must follow the format of a letter then a number. Like:\"a1\"" << std::endl;
                 continue;
             }
+
 
             if(!isCorrectColorPiece(inputCellIndex))
             {
@@ -105,8 +106,7 @@ void Game::gameLoop() {
 
             //The input is valid, so we leave the while loop.
             break;
-            
-        } while (true);
+        }
 
 
         std::cout << "You selected the: \"" << input << "\" square" << std::endl;
