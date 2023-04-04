@@ -138,4 +138,5 @@ CMakeFiles/Brandub.dir/Game.cpp.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
  C:\Users\Javier\Documentos\GitHub\Brandub\Brandub\Game.h \
  C:\Users\Javier\Documentos\GitHub\Brandub\Brandub\Bitboard.h \
- C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset \
+ C:\Users\Javier\Documentos\GitHub\Brandub\Brandub\Move.h

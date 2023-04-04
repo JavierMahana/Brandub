@@ -5,6 +5,8 @@
 #include <iostream>
 #include <limits>
 #include "Game.h"
+#include "Move.h"
+#include <bitset>
 
 Game::Game() {
     whiteTurn = true;
@@ -30,10 +32,12 @@ void Game::gameLoop() {
     std::cout << "Black piece:" << gameBoard.getBlackChar() << std::endl;
     std::cout << "King:" << gameBoard.getKingChar() << std::endl;
     std::cout << std::endl;
-    gameBoard.Print();
+
     
     while(!hasBlackWon() && !hasWhiteWon())
     {
+        gameBoard.Print();
+        bool repeatLoop = false;
 
         std::string colorTurnString = whiteTurn ? "white" : "black";
 
@@ -41,7 +45,10 @@ void Game::gameLoop() {
 
         //variables that are filled in the code
         int inputCellIndex;
-        std::bitset<56> legalMoveMask;
+        std::bitset<56> legalMovesMask;
+
+        std::bitset<56> pieceToMoveMask;
+        std::bitset<56> destinationSquareMask;
 
         //Selection of the piece to move
         while (true){
@@ -63,16 +70,17 @@ void Game::gameLoop() {
                 continue;
             }
 
-            if(!areLegalMoves(inputCellIndex, legalMoveMask))
+            if(!areLegalMoves(inputCellIndex, legalMovesMask))
             {
                 std::cout << "Invalid input! you must select square containing a piece that have legal moves" << std::endl;
                 continue;
             }
 
             std::cin.clear();
-            //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-            //The input is valid, so we leave the while loop.
+            //The input is valid, so we set the pieceToMoveMask and leave the while loop.
+
+            pieceToMoveMask = indexToBitset(inputCellIndex);
             break;
         }
 
@@ -81,14 +89,49 @@ void Game::gameLoop() {
         std::cout << std::endl;
 
 
+
         while (true)
         {
             std::cout << "Now enter the square that you want to move to, or \"q\" to select another piece." << std::endl;
             std::cin >> input;
+
+            if(input == "q" ||input == "Q")
+            {
+                repeatLoop = true;
+                break;
+            }
+
+            if(!validInput(input, inputCellIndex))
+            {
+                std::cout << "Invalid input! it must follow the format of a letter then a number. Like:\"a1\". Or \"q\"" << std::endl;
+                continue;
+            }
+
+            destinationSquareMask = indexToBitset(inputCellIndex);
+            if(!(destinationSquareMask & legalMovesMask).any())
+            {
+                std::cout << "Invalid input! you must select square that have a legal move" << std::endl;
+                continue;
+            }
+
+            //Here we know that we have a legal move!!!
+            break;
+
         }
+        if(repeatLoop)
+            continue;
+
+        Move turnMove(whiteTurn, pieceToMoveMask, destinationSquareMask);
+        turnMove.Print(*this);
+
+        gameBoard.TryMove(turnMove);
+
+        //change the turn
+        whiteTurn = !whiteTurn;
+
         //do the game loop
-        std::cout << "Leaving... temporal..." << std::endl;
-        break;
+        //std::cout << "Leaving... temporal..." << std::endl;
+        //break;
     }
 }
 
@@ -127,8 +170,8 @@ bool Game::isCorrectColorPiece(int cellIndex) const {
 //it checks if a cell index have any legal moves available and returns them in a bitset-mask
 bool Game::areLegalMoves(int cellIndex, std::bitset<56> &legalMoveMask) {
 
-    std::bitset<56> cellMask;
-    cellMask[cellIndex] = 1;
+    std::bitset<56> cellMask = indexToBitset(cellIndex);
+    //cellMask[cellIndex] = 1;
     //Bitboard::setBitValueAtIndex(cellMask, 1, cellIndex);
 
     for (int i = 0; i < 4; ++i)
@@ -149,6 +192,34 @@ bool Game::areLegalMoves(int cellIndex, std::bitset<56> &legalMoveMask) {
     }
     return legalMoveMask.any();
 }
+
+std::bitset<56> Game::indexToBitset(int index) {
+    if(index < 0 || index >=56)
+    {
+        std::cout << "Index out of range!"<< std::endl;
+        return std::bitset<56>();
+    }
+    std::bitset<56> bitset;
+    bitset[index] = 1;
+    return bitset;
+}
+
+std::string Game::getSquareNameOfFirstBit(const std::bitset<56> &bitset) {
+
+    int firstSetBit = -1;
+    for (int i = 0; i < bitset.size(); i++) {
+        if (bitset.test(i)) {
+            firstSetBit = i;
+            break;
+        }
+    }
+
+    if(firstSetBit != -1)
+        return boardMap[firstSetBit];
+    else
+        return "EMPTY";
+}
+
 
 
 

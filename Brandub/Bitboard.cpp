@@ -98,8 +98,42 @@ void Bitboard::Print() {
   }
 
 
-  bool Bitboard::TryMove(Move move) {
-      return false;
+  bool Bitboard::TryMove(Move move)
+  {
+      bool validMove;
+
+      if(move.isWhiteTurnMove())
+      {
+          validMove = ((move.getFromMove() & getAllWhiteBits()).any() && (move.getToMove() & getEmpty()).any());
+      }
+      else
+      {
+          validMove = ((move.getFromMove() & getBitsBlack()).any() && (move.getToMove() & getEmpty()).any());
+      }
+
+      if(!validMove)
+      {
+          return false;
+      }
+
+      if(move.isWhiteTurnMove())
+      {
+          //check if the move is a king move
+          if((move.getFromMove() & getBitsKing()).any())
+          {
+              setBitsKing(move.getToMove());
+          }
+          else
+          {
+              setBitsWhite((getBitsWhite() xor move.getFromMove()) | move.getToMove());
+          }
+      }
+      else
+      {
+          setBitsBlack((getBitsBlack() xor move.getFromMove()) | move.getToMove());
+      }
+
+      return validMove;
   }
 
   const std::bitset<56> &Bitboard::getBitsWhite() const {
