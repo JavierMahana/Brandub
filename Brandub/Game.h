@@ -18,9 +18,12 @@ public:
     bool hasBlackWon() const;
     bool isCorrectColorPiece(int cellIndex) const;
     bool areLegalMoves(int cellIndex, std::bitset<56>& legalMoveMask);
+    bool areLegalMoves(std::bitset<56> cellMask, std::bitset<56>& legalMoveMask);
     std::bitset<56> indexToBitset(int index);
     std::string getSquareNameOfFirstBit(const std::bitset<56>& bitset);
     bool validInput(const std::string& input, int& cellIndex);
+
+    void MoveRandom();
 
 private:
 
@@ -73,8 +76,7 @@ public:
     };
 
 
-
-
+    std::bitset<56> GetRandomCell();
 };
 
 

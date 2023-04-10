@@ -87,9 +87,12 @@ public:
     const char getEmptyChar(){return EMPTY_CHAR;}
 
     void Print();
-
+    void Print(std::bitset<56> bitsetToPrint);
     bool TryMove(Move move);
 
+    bool CheckAlly(std::bitset<56> bitset, Direction direction, bool isWhite);
+
+    void CheckEat(Move move);
 
 public:
 

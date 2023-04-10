@@ -97,6 +97,97 @@ void Bitboard::Print() {
      */
   }
 
+void Bitboard::Print(std::bitset<56> bitsetToPrint) {
+    // bitsets are usually printed according to the way in which the byte values are stored in memory
+    // therefore to print our visual representation we turn it into a string
+    std::string bits_str = bitsetToPrint.to_string();
+
+    std::cout << "   A B C D E F G" <<std::endl;
+    std::cout << "   _ _ _ _ _ _ _" <<std::endl;
+    int row = 1;
+    int j = 0;
+
+    // Tablero Reverso
+    for (int i = 55; i >= 0; --i) {
+
+        if(j==0){
+            std::cout<< row << "|";
+        }
+        if(i%8 != 0){
+            std::cout << " ";
+            std::cout << bitsetToPrint[i];
+        }
+
+        j++;
+        if(j==8){
+            j = 0;
+            row++;
+            std::cout<<std::endl;
+        }
+
+    }
+}
+
+/// CURRENTLY CHANGING KING SYMBOL FIX!
+/// CHECK KING CHECK
+void Bitboard::CheckEat(Move move)  {
+std::bitset<56> cellMask = move.getToMove();
+
+    for (int i = 0; i < 4; ++i)
+    {
+        Bitboard::Direction direction = static_cast<Bitboard::Direction>(i);
+        std::bitset<56> shiftedCell = cellMask;
+        while (true){
+
+            std::bitset<56> enemyPiece;
+            shiftedCell = shiftDirection(shiftedCell, direction);
+            //It checks if the shifted cell is in has an enemypiece.
+            if((shiftedCell & getBitsBlack()).any() && move.isWhiteTurnMove()){
+                enemyPiece = shiftedCell;
+            }
+            // Here check for the King because he belongs to the White Pieces
+            else if((shiftedCell & getAllWhiteBits()).any() && !move.isWhiteTurnMove())
+                enemyPiece = shiftedCell;
+
+            if(enemyPiece.none()){
+                break;
+            }
+
+            // checks if there is an ally in the same direction
+            if(Bitboard::CheckAlly(enemyPiece, direction, move.isWhiteTurnMove())){
+
+                std::cout << "Se debe comer una pieza!" << std::endl;
+
+                if(move.isWhiteTurnMove()){
+                    setBitsBlack(getBitsBlack() xor enemyPiece );
+                    std::cout << "ComeNegra" << std::endl;
+                }
+                else{
+                    setBitsWhite(getAllWhiteBits() xor enemyPiece );
+                    std::cout << "ComeBlanca" << std::endl;
+                }
+                break;
+            }
+        }
+    }
+}
+
+bool Bitboard::CheckAlly(std::bitset<56> bitset, Bitboard::Direction direction, bool isWhite){
+
+    std::bitset<56> shiftedCell = shiftDirection(bitset, direction);
+    if(isWhite){
+        if((shiftedCell & getAllWhiteBits()).any()){
+            return true;
+        }
+    }
+    else{
+        if((shiftedCell & getBitsBlack()).any()){
+            return true;
+        }
+    }
+
+    return false;
+}
 
   bool Bitboard::TryMove(Move move)
   {
@@ -121,15 +212,18 @@ void Bitboard::Print() {
           //check if the move is a king move
           if((move.getFromMove() & getBitsKing()).any())
           {
+              // makes the move
               setBitsKing(move.getToMove());
           }
           else
           {
+              // makes the move
               setBitsWhite((getBitsWhite() xor move.getFromMove()) | move.getToMove());
           }
       }
       else
       {
+          // makes the move
           setBitsBlack((getBitsBlack() xor move.getFromMove()) | move.getToMove());
       }
 

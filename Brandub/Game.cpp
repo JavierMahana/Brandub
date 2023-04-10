@@ -10,6 +10,7 @@
 
 Game::Game() {
     whiteTurn = true;
+    srand(time(NULL));
 }
 
 
@@ -39,7 +40,16 @@ void Game::gameLoop() {
         gameBoard.Print();
         bool repeatLoop = false;
 
+
         std::string colorTurnString = whiteTurn ? "white" : "black";
+
+        //IA Turn
+        if(!whiteTurn)
+        {
+            MoveRandom();
+            whiteTurn = !whiteTurn;
+            continue;
+        }
 
         std::string input;
 
@@ -124,7 +134,11 @@ void Game::gameLoop() {
         Move turnMove(whiteTurn, pieceToMoveMask, destinationSquareMask);
         turnMove.Print(*this);
 
+        //Try to move the piece
         gameBoard.TryMove(turnMove);
+
+        //check if the piece is eats something
+        gameBoard.CheckEat(turnMove);
 
         //change the turn
         whiteTurn = !whiteTurn;
@@ -167,13 +181,8 @@ bool Game::isCorrectColorPiece(int cellIndex) const {
 
 
 
-//it checks if a cell index have any legal moves available and returns them in a bitset-mask
-bool Game::areLegalMoves(int cellIndex, std::bitset<56> &legalMoveMask) {
-
-    std::bitset<56> cellMask = indexToBitset(cellIndex);
-    //cellMask[cellIndex] = 1;
-    //Bitboard::setBitValueAtIndex(cellMask, 1, cellIndex);
-
+bool Game::areLegalMoves(std::bitset<56> cellMask, std::bitset<56> &legalMoveMask)
+{
     for (int i = 0; i < 4; ++i)
     {
         Bitboard::Direction direction = static_cast<Bitboard::Direction>(i);
@@ -191,6 +200,13 @@ bool Game::areLegalMoves(int cellIndex, std::bitset<56> &legalMoveMask) {
 
     }
     return legalMoveMask.any();
+}
+//it checks if a cell index have any legal moves available and returns them in a bitset-mask
+bool Game::areLegalMoves(int cellIndex, std::bitset<56> &legalMoveMask) {
+
+    std::bitset<56> cellMask = indexToBitset(cellIndex);
+
+    return areLegalMoves(cellMask, legalMoveMask);
 }
 
 std::bitset<56> Game::indexToBitset(int index) {
@@ -219,6 +235,78 @@ std::string Game::getSquareNameOfFirstBit(const std::bitset<56> &bitset) {
     else
         return "EMPTY";
 }
+
+void Game::MoveRandom()
+{
+    int tryNumber = 0;
+    int maxRandomTries = 9999;
+
+    while (tryNumber <= maxRandomTries)
+    {
+        tryNumber++;
+
+        //First we generate a random from move.
+        std::bitset<56> randomFromMove = GetRandomCell();
+
+        //Now we validate that there is a piece of the correct color there
+        if(whiteTurn)
+        {
+            if((randomFromMove & gameBoard.getAllWhiteBits()).none())
+            {
+                continue;
+            }
+        }
+        else
+        {
+            if((randomFromMove & gameBoard.getBitsBlack()).none())
+            {
+                continue;
+            }
+        }
+
+        //and then if it has any legal moves.
+        std::bitset<56> legalMovesMask;
+        if(!areLegalMoves(randomFromMove, legalMovesMask))
+        {
+            continue;
+        }
+
+        //Now we generate a random To Move and we validate it
+        std::bitset<56> randomToMove;
+        do {
+            randomToMove = GetRandomCell();
+        } while ((randomToMove & legalMovesMask).none());
+
+        Move randomMove(whiteTurn, randomFromMove, randomToMove);
+        //Here we make the move!
+        if(!gameBoard.TryMove(randomMove))
+        {
+            std::cout << "There was a problem with the random Move!" << std::endl;
+        }
+        randomMove.Print(*this);
+
+        break;
+    }
+    if(tryNumber >= maxRandomTries)
+    {
+        std::cout << "There was a problem with the random Move! MAX tries reached" << std::endl;
+    }
+}
+
+std::bitset<56> Game::GetRandomCell() {
+    std::bitset<56> randomCell;
+
+    int random_number = -1;  // Initialize to a value that is not a multiple of 8
+    while (random_number % 8 == 0 || random_number == -1) {
+        random_number = rand() % 56;  // Generate a random number between 0 and 56
+    }
+
+    randomCell = indexToBitset(random_number);
+    return randomCell;
+}
+
+
+
 
 
 
