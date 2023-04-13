@@ -60,41 +60,7 @@ void Bitboard::Print() {
             row++;
             std::cout<<std::endl;
         }
-
     }
-    // Tablero Normal
-    /*
-      for (int i = 0; i < bits_str.size(); i++) {
-
-          if(j==0){
-              std::cout<< row << "|";
-          }
-          if(i%8 != 0){
-
-              std::cout << " ";
-
-              if(getFull()[i] != 0 && bitsWhite[i] != 0){
-                  std::cout << getWhiteChar();
-              }
-              else if(getFull()[i] != 0 && bitsBlack[i] != 0){
-                  std::cout << getBlackChar();
-              }
-              else if(getFull()[i] != 0 && bitsKing[i] != 0){
-                  std::cout << getKingChar();
-              }
-              else{
-                  std::cout << getEmptyChar();
-              }
-          }
-
-          j++;
-          if(j==8){
-              j = 0;
-              row++;
-              std::cout<<std::endl;
-          }
-      }
-     */
   }
 
 void Bitboard::Print(std::bitset<56> bitsetToPrint) {
@@ -163,7 +129,7 @@ std::bitset<56> cellMask = move.getToMove();
                     std::cout << "ComeNegra" << std::endl;
                 }
                 else{
-                    setBitsWhite(getAllWhiteBits() xor enemyPiece );
+                    setBitsWhite(getBitsWhite() xor enemyPiece );
                     std::cout << "ComeBlanca" << std::endl;
                 }
                 break;
@@ -226,6 +192,9 @@ bool Bitboard::CheckAlly(std::bitset<56> bitset, Bitboard::Direction direction, 
           // makes the move
           setBitsBlack((getBitsBlack() xor move.getFromMove()) | move.getToMove());
       }
+
+      //check if the piece is eats something
+      CheckEat(move);
 
       return validMove;
   }
@@ -341,6 +310,78 @@ bool Bitboard::CheckAlly(std::bitset<56> bitset, Bitboard::Direction direction, 
 
       return result;
   }
+
+float Bitboard::EvaluateBoard() {
+
+    //evaluar balance de material
+    //evaluar seguridad de piezas
+    //evaluar seguridad del rey
+
+
+
+    float materialBalance = getBitsWhite().count() * 2 - getBitsBlack().count();
+
+    //evaluar posición del rey
+    //revisa cuantos lados tiene libre para llegar a una esquina
+    //si no tiene ninguna
+    //uno revisa cuantos lados tiene libres para llegar a un borde.
+    //si no tiene un borde
+    float kingPosition;
+
+    return 0;
+}
+
+float Bitboard::CheckDanger(std::bitset<56> bitset) {
+
+    float DangerScore = 0;
+
+    // Check danger for each piece in the argument bitset
+    for (int i = 0; i < bitset.size(); i++) {
+        if (bitset.test(i) == 1) {
+
+
+            // revisar si cuantos enemigos adyacentes (2)
+
+            // revisar la opuesta a un enemigo (desocupada, ocupada por amigo)
+
+            // si esta desocupada revisar si hay aliados o enemigos en las rectas
+
+        }
+    }
+
+    return 0;
+}
+
+
+
+float Bitboard::EvaluateKingPosition()
+{
+    auto kingPos = getBitsKing();
+
+
+}
+
+bool Bitboard::isOnSight(std::bitset<56> a, std::bitset<56> b, Bitboard::Direction direction)
+{
+    for (int i = 0; i < 7; ++i)
+    {
+        shiftDirection(a, direction);
+    }
+    return false;
+}
+
+/*
+// Funcion de evluación
+
+* INSEGURIDAD
+
+- Si hay una pieza enemiga alrededor revisar si hay un espacio contrario a esta disponible. Si el espacio existe
+  ver si hay enemigos en las rectas.
+- Ver si hay enemigos en las rectas de la posición actual de cada pieza.
+
+
+
+*/
 
 //  void Bitboard::setBitValueAtIndex(std::bitset<56>& bitset, bool value, int index)
 //  {

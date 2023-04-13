@@ -94,6 +94,13 @@ public:
 
     void CheckEat(Move move);
 
+    float CheckDanger(std::bitset<56> bitset);
+    float EvaluateBoard();
+    float EvaluateKingPosition();
+
+    bool isOnSight(std::bitset<56> a, std::bitset<56> b, Direction direction);
+
+
 public:
 
 //

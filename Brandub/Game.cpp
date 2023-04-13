@@ -46,9 +46,11 @@ void Game::gameLoop() {
         //IA Turn
         if(!whiteTurn)
         {
-            MoveRandom();
-            whiteTurn = !whiteTurn;
-            continue;
+            //MoveRandom();
+            //whiteTurn = !whiteTurn;
+            //continue;
+
+            gameBoard.CheckDanger(gameBoard.getBitsBlack);
         }
 
         std::string input;
@@ -136,9 +138,6 @@ void Game::gameLoop() {
 
         //Try to move the piece
         gameBoard.TryMove(turnMove);
-
-        //check if the piece is eats something
-        gameBoard.CheckEat(turnMove);
 
         //change the turn
         whiteTurn = !whiteTurn;
