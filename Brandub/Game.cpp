@@ -13,7 +13,6 @@ Game::Game() {
     srand(time(NULL));
 }
 
-
 bool Game::hasWhiteWon() const{
     return false;
 }
@@ -37,7 +36,7 @@ void Game::gameLoop() {
     
     while(!hasBlackWon() && !hasWhiteWon())
     {
-        gameBoard.Print();
+        gameBoard.print();
         bool repeatLoop = false;
 
 
@@ -48,9 +47,9 @@ void Game::gameLoop() {
         {
             //MoveRandom();
             //whiteTurn = !whiteTurn;
-            //continue;
+            //continue;d3
 
-            gameBoard.EvaluateDanger(gameBoard.getBitsBlack(), false);
+            gameBoard.evaluateDangerInCell(gameBoard.getBitsBlack(), false);
         }
 
         std::string input;
@@ -137,7 +136,7 @@ void Game::gameLoop() {
         turnMove.Print(*this);
 
         //Try to move the piece
-        gameBoard.TryMove(turnMove);
+        gameBoard.tryMove(turnMove);
 
         //change the turn
         whiteTurn = !whiteTurn;
@@ -177,8 +176,6 @@ bool Game::isCorrectColorPiece(int cellIndex) const {
     }
     return false;
 }
-
-
 
 bool Game::areLegalMoves(std::bitset<56> cellMask, std::bitset<56> &legalMoveMask)
 {
@@ -278,7 +275,7 @@ void Game::MoveRandom()
 
         Move randomMove(whiteTurn, randomFromMove, randomToMove);
         //Here we make the move!
-        if(!gameBoard.TryMove(randomMove))
+        if(!gameBoard.tryMove(randomMove))
         {
             std::cout << "There was a problem with the random Move!" << std::endl;
         }

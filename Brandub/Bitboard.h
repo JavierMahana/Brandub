@@ -18,8 +18,8 @@ public:
     //Proportions 7*7 + 7 bit separation to the right
     const int BOARD_BIT_SIZE = 56;
 
-
     const std::bitset<56> BOARD_MASK {"11111110111111101111111011111110111111101111111011111110"};
+    const std::bitset<56> CENTER {"00000000000000000000000000010000000000000000000000000000"};
     const std::bitset<56> TOP_LEFT_CORNER {"10000000000000000000000000000000000000000000000000000000"};
     const std::bitset<56> TOP_RIGHT_CORNER {"00000010000000000000000000000000000000000000000000000000"};
     const std::bitset<56> BOTTOM_LEFT_CORNER {"00000000000000000000000000000000000000000000000010000000"};
@@ -33,6 +33,7 @@ public:
     const char WHITE_CHAR = 'W';
     const char KING_CHAR = 'K';
     const char EMPTY_CHAR = ' ';
+    const char BLOCK_CHAR = 'X';
 
     enum class DirectionFlag : unsigned int {
         LEFT = 1 << 0,
@@ -48,7 +49,6 @@ public:
         DOWN
     };
 
-
 private:
 
     std::bitset<56> bitsWhite;
@@ -62,6 +62,8 @@ public:
     std::bitset<56> getFull () const { return bitsBlack | bitsKing | bitsWhite;};
     std::bitset<56> getEmpty () const {return getFull().flip() & BOARD_MASK;};
     std::bitset<56> getAllWhiteBits () const { return bitsKing | bitsWhite;};
+    std::bitset<56> getAllCorners () const { return TOP_LEFT_CORNER | TOP_RIGHT_CORNER | BOTTOM_LEFT_CORNER | BOTTOM_RIGHT_CORNER;};
+    std::bitset<56> getBlockedBits () const { return getAllCorners() | CENTER;};
 
     std::bitset<56> shiftDirection(std::bitset<56> bitset, Direction direction);
     std::bitset<56> shiftUp(std::bitset<56> bitset);
@@ -71,6 +73,27 @@ public:
 
     std::bitset<56> dilateBits(std::bitset<56> bitset, DirectionFlag dilateDirection);
     std::bitset<56> erodeBits(std::bitset<56> bitset, DirectionFlag erodeDirection);
+
+    Direction getOpositeDirection(Direction direction);
+
+    void print();
+    void print(std::bitset<56> bitsetToPrint);
+
+    bool tryMove(Move move);
+    bool isOnSight(std::bitset<56> a, std::bitset<56> b, Direction direction);
+
+    bool isAllyInCell(std::bitset<56> cellToCheck, bool isWhite);
+    bool checkForMate();
+    bool checkKingPosition(std::bitset<56> cellPosition){return (cellPosition & getBitsKing()).any();}
+    void checkEat(Move move);
+
+    bool bitGenerateCapture(std::bitset<56> bitToCheck, bool isWhite, Direction& captureDirection);
+    bool bitMustBeEaten(std::bitset<56> bitToCheck, bool isWhite);
+
+    int evaluateDangerInCell(std::bitset<56> cell, bool isWhite);
+    int evaluateEatenDanger(std::bitset<56> bitset, Direction direction);
+    int evaluateBoard();
+    int evaluateKingPosition();
 
     //Getter and setter of bits
     const std::bitset<56> &getBitsWhite() const;
@@ -85,31 +108,7 @@ public:
     const char getWhiteChar(){return WHITE_CHAR;}
     const char getKingChar(){return KING_CHAR;}
     const char getEmptyChar(){return EMPTY_CHAR;}
-
-    void Print();
-    void Print(std::bitset<56> bitsetToPrint);
-    bool TryMove(Move move);
-
-    bool CheckAlly(std::bitset<56> bitset, Direction direction, bool isWhite);
-    bool CheckForMate();
-
-    void CheckEat(Move move);
-
-    float EvaluateDanger(std::bitset<56> bitset, bool isWhite);
-    float EvaluateEatenDanger(std::bitset<56> bitset, Direction direction);
-    float EvaluateBoard();
-    float EvaluateKingPosition();
-
-    bool isOnSight(std::bitset<56> a, std::bitset<56> b, Direction direction);
-
-
-public:
-
-//
-//    static bool getBitValueAtIndex(std::bitset<56> bitset, int index);
-//    static void setBitValueAtIndex(std::bitset<56>& bitset, bool value, int index);
-//
-
+    const char getBlockChar(){return BLOCK_CHAR;}
 
 };
 
