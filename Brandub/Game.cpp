@@ -50,7 +50,7 @@ void Game::gameLoop() {
             //whiteTurn = !whiteTurn;
             //continue;
 
-            gameBoard.CheckDanger(gameBoard.getBitsBlack);
+            gameBoard.EvaluateDanger(gameBoard.getBitsBlack(), false);
         }
 
         std::string input;

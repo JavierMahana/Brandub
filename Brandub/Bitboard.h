@@ -91,10 +91,12 @@ public:
     bool TryMove(Move move);
 
     bool CheckAlly(std::bitset<56> bitset, Direction direction, bool isWhite);
+    bool CheckForMate();
 
     void CheckEat(Move move);
 
-    float CheckDanger(std::bitset<56> bitset);
+    float EvaluateDanger(std::bitset<56> bitset, bool isWhite);
+    float EvaluateEatenDanger(std::bitset<56> bitset, Direction direction);
     float EvaluateBoard();
     float EvaluateKingPosition();
 

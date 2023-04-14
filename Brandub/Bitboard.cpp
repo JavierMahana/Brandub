@@ -101,7 +101,7 @@ std::bitset<56> cellMask = move.getToMove();
 
     for (int i = 0; i < 4; ++i)
     {
-        Bitboard::Direction direction = static_cast<Bitboard::Direction>(i);
+        auto direction = static_cast<Bitboard::Direction>(i);
         std::bitset<56> shiftedCell = cellMask;
         while (true){
 
@@ -331,44 +331,107 @@ float Bitboard::EvaluateBoard() {
     return 0;
 }
 
-float Bitboard::CheckDanger(std::bitset<56> bitset) {
+float Bitboard::EvaluateDanger(std::bitset<56> bitset, bool isWhite) {
 
+    std::bitset<56> cellMask = bitset;
     float DangerScore = 0;
+    bool mayBeEaten;
 
-    // Check danger for each piece in the argument bitset
-    for (int i = 0; i < bitset.size(); i++) {
-        if (bitset.test(i) == 1) {
+    for (int i = 0; i < 4; ++i){
+        auto direction = static_cast<Bitboard::Direction>(i);
+        std::bitset<56> shiftedCell = cellMask;
+        mayBeEaten = false;
 
+        while (true){
+            std::bitset<56> adyacentCell;
+            shiftedCell = shiftDirection(shiftedCell, direction);
 
             // revisar si cuantos enemigos adyacentes (2)
-
+            if((shiftedCell & getBitsBlack()).any() && isWhite){
+                DangerScore += 0.1;
+                mayBeEaten = true;
+            }
+            else if((shiftedCell & getAllWhiteBits()).any() && !isWhite){
+                DangerScore += 0.1;
+                mayBeEaten = true;
+            }
+            // else the adyacent cell is free. So we must check on the remaining directions of the adyacent cell
+            else{
+                adyacentCell = shiftedCell;
+                //DangerScore += FUNCTION THAT CHECKS ENEMIES IN 4 DIRECTIONS(ADYACENT CELL, DIRECTION);
+            }
             // revisar la opuesta a un enemigo (desocupada, ocupada por amigo)
+            if(mayBeEaten){
+                Bitboard::Direction oppositeDirection = direction;
 
-            // si esta desocupada revisar si hay aliados o enemigos en las rectas
+                switch (direction) {
+                    case Bitboard::Direction::LEFT:
+                        oppositeDirection = Bitboard::Direction::RIGHT;
+                        break;
+                    case Bitboard::Direction::RIGHT:
+                        oppositeDirection = Bitboard::Direction::LEFT;
+                        break;
+                    case Bitboard::Direction::UP:
+                        oppositeDirection = Bitboard::Direction::DOWN;
+                        break;
+                    case Bitboard::Direction::DOWN:
+                        oppositeDirection = Bitboard::Direction::UP;
+                        break;
+                    default: break;
+                }
 
+                shiftedCell = cellMask;
+                adyacentCell = shiftDirection(shiftedCell, oppositeDirection);
+                // si esta desocupada revisar si hay aliados o enemigos en las rectas
+                //DangerScore += FUNCTION THAT CHECKS ENEMIES IN 4 DIRECTIONS(ADYACENT CELL, DIRECTION);
+            }
+            break;
         }
     }
+    return DangerScore;
+}
 
+float Bitboard::EvaluateEatenDanger(std::bitset<56> bitset, Bitboard::Direction direction) {
     return 0;
 }
 
+float Bitboard::EvaluateKingPosition(){
 
-
-float Bitboard::EvaluateKingPosition()
-{
     auto kingPos = getBitsKing();
-
-
+    return 0;
 }
 
-bool Bitboard::isOnSight(std::bitset<56> a, std::bitset<56> b, Bitboard::Direction direction)
-{
+bool Bitboard::isOnSight(std::bitset<56> a, std::bitset<56> b, Bitboard::Direction direction){
+
     for (int i = 0; i < 7; ++i)
     {
         shiftDirection(a, direction);
     }
     return false;
 }
+
+bool Bitboard::CheckForMate(){
+
+    std::bitset<56> cellMask = getBitsKing();
+    int counter = 0;
+
+    for(int i = 0; i < 56; i++){
+        if(cellMask.test(i)){
+            std::bitset<56> shiftedCell = cellMask.test(i);
+            for (int j = 0; j < 4; ++j){
+                auto direction = static_cast<Bitboard::Direction>(j);
+                shiftedCell = shiftDirection(shiftedCell, direction);
+                //It checks if the shifted cell is in has an enemypiece.
+                if((shiftedCell & getBitsBlack()).any()){
+                    counter++;
+                }
+            }
+        }
+    }
+    return counter == 4;
+}
+
+
 
 /*
 // Funcion de evluación
