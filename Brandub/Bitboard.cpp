@@ -94,7 +94,6 @@ void Bitboard::Print(std::bitset<56> bitsetToPrint) {
     }
 }
 
-/// CURRENTLY CHANGING KING SYMBOL FIX!
 /// CHECK KING CHECK
 void Bitboard::CheckEat(Move move)  {
 std::bitset<56> cellMask = move.getToMove();
@@ -122,15 +121,13 @@ std::bitset<56> cellMask = move.getToMove();
             // checks if there is an ally in the same direction
             if(Bitboard::CheckAlly(enemyPiece, direction, move.isWhiteTurnMove())){
 
-                std::cout << "Se debe comer una pieza!" << std::endl;
-
                 if(move.isWhiteTurnMove()){
                     setBitsBlack(getBitsBlack() xor enemyPiece );
-                    std::cout << "ComeNegra" << std::endl;
+                    std::cout << "Blanca come Negra" << std::endl;
                 }
                 else{
                     setBitsWhite(getBitsWhite() xor enemyPiece );
-                    std::cout << "ComeBlanca" << std::endl;
+                    std::cout << "Negra come Blanca" << std::endl;
                 }
                 break;
             }
@@ -159,38 +156,33 @@ bool Bitboard::CheckAlly(std::bitset<56> bitset, Bitboard::Direction direction, 
   {
       bool validMove;
 
-      if(move.isWhiteTurnMove())
-      {
+      if(move.isWhiteTurnMove()){
           validMove = ((move.getFromMove() & getAllWhiteBits()).any() && (move.getToMove() & getEmpty()).any());
       }
-      else
-      {
+      else{
           validMove = ((move.getFromMove() & getBitsBlack()).any() && (move.getToMove() & getEmpty()).any());
       }
 
-      if(!validMove)
-      {
+      if(!validMove){
           return false;
       }
 
-      if(move.isWhiteTurnMove())
-      {
+      if(move.isWhiteTurnMove()){
           //check if the move is a king move
-          if((move.getFromMove() & getBitsKing()).any())
-          {
+          if((move.getFromMove() & getBitsKing()).any()){
               // makes the move
               setBitsKing(move.getToMove());
           }
-          else
-          {
+          else{
               // makes the move
               setBitsWhite((getBitsWhite() xor move.getFromMove()) | move.getToMove());
           }
+          move.getToMove();
       }
-      else
-      {
+      else{
           // makes the move
           setBitsBlack((getBitsBlack() xor move.getFromMove()) | move.getToMove());
+          move.getToMove();
       }
 
       //check if the piece is eats something
@@ -317,8 +309,6 @@ float Bitboard::EvaluateBoard() {
     //evaluar seguridad de piezas
     //evaluar seguridad del rey
 
-
-
     float materialBalance = getBitsWhite().count() * 2 - getBitsBlack().count();
 
     //evaluar posición del rey
@@ -334,34 +324,45 @@ float Bitboard::EvaluateBoard() {
 float Bitboard::EvaluateDanger(std::bitset<56> bitset, bool isWhite) {
 
     std::bitset<56> cellMask = bitset;
+    std::bitset<56> shiftedCell;
+    std::bitset<56> adyacentCell;
+
     float DangerScore = 0;
     bool mayBeEaten;
 
+    // We check on all four directions
     for (int i = 0; i < 4; ++i){
         auto direction = static_cast<Bitboard::Direction>(i);
-        std::bitset<56> shiftedCell = cellMask;
+        shiftedCell = cellMask;
+        adyacentCell = cellMask;
         mayBeEaten = false;
 
         while (true){
-            std::bitset<56> adyacentCell;
             shiftedCell = shiftDirection(shiftedCell, direction);
 
-            // revisar si cuantos enemigos adyacentes (2)
-            if((shiftedCell & getBitsBlack()).any() && isWhite){
-                DangerScore += 0.1;
-                mayBeEaten = true;
-            }
-            else if((shiftedCell & getAllWhiteBits()).any() && !isWhite){
-                DangerScore += 0.1;
-                mayBeEaten = true;
-            }
-            // else the adyacent cell is free. So we must check on the remaining directions of the adyacent cell
-            else{
+            // Check if adyacent is empty
+            if((shiftedCell & getEmpty()).any()){
                 adyacentCell = shiftedCell;
-                //DangerScore += FUNCTION THAT CHECKS ENEMIES IN 4 DIRECTIONS(ADYACENT CELL, DIRECTION);
+                for (int j = 0; j < 4; ++j){
+                    auto adyacentDirection = static_cast<Bitboard::Direction>(j);
+                    DangerScore += PieceOnSight(adyacentCell, adyacentDirection, isWhite);
+                }
             }
-            // revisar la opuesta a un enemigo (desocupada, ocupada por amigo)
+            // Check for oponent in adyacent cells
+            else{
+                if((shiftedCell & getBitsBlack()).any() && isWhite){
+                    DangerScore += 1;
+                    mayBeEaten = true;
+                }
+                else if((shiftedCell & getAllWhiteBits()).any() && !isWhite){
+                    DangerScore += 1;
+                    mayBeEaten = true;
+                }
+            }
+
+            // We check on the opposite direction for a piece
             if(mayBeEaten){
+
                 Bitboard::Direction oppositeDirection = direction;
 
                 switch (direction) {
@@ -380,14 +381,18 @@ float Bitboard::EvaluateDanger(std::bitset<56> bitset, bool isWhite) {
                     default: break;
                 }
 
-                shiftedCell = cellMask;
-                adyacentCell = shiftDirection(shiftedCell, oppositeDirection);
-                // si esta desocupada revisar si hay aliados o enemigos en las rectas
-                //DangerScore += FUNCTION THAT CHECKS ENEMIES IN 4 DIRECTIONS(ADYACENT CELL, DIRECTION);
+                shiftedCell = shiftDirection(cellMask, oppositeDirection);
+                for (int j = 0; j < 4; ++j){
+                    auto newDirection = static_cast<Bitboard::Direction>(j);
+                    if(newDirection != oppositeDirection){
+                        DangerScore += PieceOnSight(shiftedCell, newDirection, isWhite);
+                    }
+                }
             }
             break;
         }
     }
+    std::cout <<" ** Danger Evaluated: " << DangerScore << std::endl;
     return DangerScore;
 }
 
@@ -401,13 +406,29 @@ float Bitboard::EvaluateKingPosition(){
     return 0;
 }
 
-bool Bitboard::isOnSight(std::bitset<56> a, std::bitset<56> b, Bitboard::Direction direction){
+float Bitboard::PieceOnSight(std::bitset<56> cellPosition, Bitboard::Direction direction, bool isWhite){
 
+    std::bitset<56> shiftedCell = cellPosition;
     for (int i = 0; i < 7; ++i)
     {
-        shiftDirection(a, direction);
+        shiftedCell = shiftDirection(shiftedCell, direction);
+
+        if(isWhite){
+            if((shiftedCell & getBitsBlack()).any()){
+                return 1;
+            }
+
+            else if((shiftedCell & getBitsWhite()).any()) return 0;
+        }
+        else{
+            if((shiftedCell & getBitsWhite()).any()){
+                return 1;
+            }
+            else if((shiftedCell & getBitsBlack()).any()) return 0;
+        }
     }
-    return false;
+
+    return 0;
 }
 
 bool Bitboard::CheckForMate(){

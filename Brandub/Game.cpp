@@ -34,41 +34,36 @@ void Game::gameLoop() {
     std::cout << "King:" << gameBoard.getKingChar() << std::endl;
     std::cout << std::endl;
 
-    
-    while(!hasBlackWon() && !hasWhiteWon())
-    {
+
+    while(!hasBlackWon() && !hasWhiteWon()){
         gameBoard.Print();
         bool repeatLoop = false;
 
-
         std::string colorTurnString = whiteTurn ? "white" : "black";
 
-        //IA Turn
-        if(!whiteTurn)
-        {
+        // IA Turn
+        if(!whiteTurn){
             //MoveRandom();
             //whiteTurn = !whiteTurn;
             //continue;
-
-            gameBoard.EvaluateDanger(gameBoard.getBitsBlack(), false);
+            //gameBoard.EvaluateDanger(gameBoard.getBitsBlack(), false);
         }
 
         std::string input;
 
-        //variables that are filled in the code
+        // variables that are filled in the code
         int inputCellIndex;
         std::bitset<56> legalMovesMask;
 
         std::bitset<56> pieceToMoveMask;
         std::bitset<56> destinationSquareMask;
 
-        //Selection of the piece to move
+        // Selection of the piece to move
         while (true){
             std::cout << "Enter the square of a " << colorTurnString << " piece that you want to move: ";
             std::cin >> input;
 
-            if(!validInput(input, inputCellIndex))
-            {
+            if(!validInput(input, inputCellIndex)){
                 std::cout << "Invalid input! it must follow the format of a letter then a number. Like:\"a1\"" << std::endl;
                 continue;
             }
@@ -76,14 +71,12 @@ void Game::gameLoop() {
             std::cout << "Input index: "<< inputCellIndex << std::endl;
 
 
-            if(!isCorrectColorPiece(inputCellIndex))
-            {
+            if(!isCorrectColorPiece(inputCellIndex)){
                 std::cout << "Invalid input! you must select square containing a " << colorTurnString << " piece" << std::endl;
                 continue;
             }
 
-            if(!areLegalMoves(inputCellIndex, legalMovesMask))
-            {
+            if(!areLegalMoves(inputCellIndex, legalMovesMask)){
                 std::cout << "Invalid input! you must select square containing a piece that have legal moves" << std::endl;
                 continue;
             }
@@ -96,32 +89,26 @@ void Game::gameLoop() {
             break;
         }
 
-
         std::cout << "You selected the: \"" << input << "\" square" << std::endl;
         std::cout << std::endl;
 
-
-
-        while (true)
-        {
+        // Selection of position to move
+        while (true){
             std::cout << "Now enter the square that you want to move to, or \"q\" to select another piece." << std::endl;
             std::cin >> input;
 
-            if(input == "q" ||input == "Q")
-            {
+            if(input == "q" ||input == "Q"){
                 repeatLoop = true;
                 break;
             }
 
-            if(!validInput(input, inputCellIndex))
-            {
+            if(!validInput(input, inputCellIndex)){
                 std::cout << "Invalid input! it must follow the format of a letter then a number. Like:\"a1\". Or \"q\"" << std::endl;
                 continue;
             }
 
             destinationSquareMask = indexToBitset(inputCellIndex);
-            if(!(destinationSquareMask & legalMovesMask).any())
-            {
+            if(!(destinationSquareMask & legalMovesMask).any()){
                 std::cout << "Invalid input! you must select square that have a legal move" << std::endl;
                 continue;
             }
@@ -139,12 +126,14 @@ void Game::gameLoop() {
         //Try to move the piece
         gameBoard.TryMove(turnMove);
 
+        gameBoard.EvaluateDanger(turnMove.getToMove(),whiteTurn);
+
+        //Check for Mate
+        gameBoard.CheckForMate();
+
         //change the turn
         whiteTurn = !whiteTurn;
 
-        //do the game loop
-        //std::cout << "Leaving... temporal..." << std::endl;
-        //break;
     }
 }
 

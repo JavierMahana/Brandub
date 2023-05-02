@@ -18,7 +18,6 @@ public:
     //Proportions 7*7 + 7 bit separation to the right
     const int BOARD_BIT_SIZE = 56;
 
-
     const std::bitset<56> BOARD_MASK {"11111110111111101111111011111110111111101111111011111110"};
     const std::bitset<56> TOP_LEFT_CORNER {"10000000000000000000000000000000000000000000000000000000"};
     const std::bitset<56> TOP_RIGHT_CORNER {"00000010000000000000000000000000000000000000000000000000"};
@@ -54,6 +53,7 @@ private:
     std::bitset<56> bitsWhite;
     std::bitset<56> bitsBlack;
     std::bitset<56> bitsKing;
+
 
 public:
 
@@ -100,18 +100,14 @@ public:
     float EvaluateBoard();
     float EvaluateKingPosition();
 
-    bool isOnSight(std::bitset<56> a, std::bitset<56> b, Direction direction);
+    float PieceOnSight(std::bitset<56> cellPosition, Direction direction, bool isWhite);
 
 
 public:
 
-//
 //    static bool getBitValueAtIndex(std::bitset<56> bitset, int index);
 //    static void setBitValueAtIndex(std::bitset<56>& bitset, bool value, int index);
-//
-
 
 };
-
 
 #endif //BRANDUB_BITBOARD_H
