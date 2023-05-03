@@ -44,7 +44,11 @@
 			}
 		},
 		{
+<<<<<<<< Updated upstream:Brandub/cmake-build-debug/.cmake/api/v1/reply/index-2023-04-14T01-35-24-0309.json
+			"jsonFile" : "cmakeFiles-v1-8562e1068c43b457bd3f.json",
+========
 			"jsonFile" : "cmakeFiles-v1-67dbac44da5b6f2c3396.json",
+>>>>>>>> Stashed changes:Brandub/cmake-build-debug/.cmake/api/v1/reply/index-2023-05-03T20-32-04-0225.json
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -76,7 +80,11 @@
 		},
 		"cmakeFiles-v1" : 
 		{
+<<<<<<<< Updated upstream:Brandub/cmake-build-debug/.cmake/api/v1/reply/index-2023-04-14T01-35-24-0309.json
+			"jsonFile" : "cmakeFiles-v1-8562e1068c43b457bd3f.json",
+========
 			"jsonFile" : "cmakeFiles-v1-67dbac44da5b6f2c3396.json",
+>>>>>>>> Stashed changes:Brandub/cmake-build-debug/.cmake/api/v1/reply/index-2023-05-03T20-32-04-0225.json
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
