@@ -29,7 +29,9 @@ private:
 
     Bitboard gameBoard;
     bool whiteTurn;
-
+    bool whiteWon;
+    bool blackWon;
+    std::string WinnerString;
 public:
 
 //    enum Board : int {

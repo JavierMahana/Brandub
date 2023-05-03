@@ -24,6 +24,7 @@ The output was:
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
 
 The CXX compiler identification is GNU, found in "D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/a.exe"
+<<<<<<< Updated upstream
 
 The system is: Windows - 10.0.22621 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
@@ -56,6 +57,13 @@ Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-2kfa7x
 
 Run Build Command(s):D:/Program Files/JetBrains/CLion 2023.1/bin/ninja/win/x64/ninja.exe cmTC_3ff8a && [1/2] Building C object CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj
+=======
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ow92ho
+
+Run Build Command(s):D:/Program Files/JetBrains/CLion 2023.1/bin/ninja/win/x64/ninja.exe cmTC_6f0e2 && [1/2] Building C object CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj
+>>>>>>> Stashed changes
 Using built-in specs.
 COLLECT_GCC=D:\Program Files\JetBrains\CLion 2023.1\bin\mingw\bin\gcc.exe
 Target: x86_64-w64-mingw32
@@ -63,8 +71,13 @@ Configured with: ../gcc-11.2.0/configure --host=x86_64-w64-mingw32 --target=x86_
 Thread model: posix
 Supported LTO compression algorithms: zlib
 gcc version 11.2.0 (GCC) 
+<<<<<<< Updated upstream
 COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3ff8a.dir/'
  D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/cc1.exe -quiet -v -iprefix D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/ -D_REENTRANT D:/Program Files/JetBrains/CLion 2023.1/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_3ff8a.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o C:\Users\joaqu\AppData\Local\Temp\ccHRhuYo.s
+=======
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_6f0e2.dir/'
+ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/cc1.exe -quiet -v -iprefix D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/ -D_REENTRANT D:/Program Files/JetBrains/CLion 2023.1/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_6f0e2.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o C:\Users\joaqu\AppData\Local\Temp\ccdxJvOk.s
+>>>>>>> Stashed changes
 GNU C17 (GCC) version 11.2.0 (x86_64-w64-mingw32)
 	compiled by GNU C version 11.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version none
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -85,6 +98,7 @@ GNU C17 (GCC) version 11.2.0 (x86_64-w64-mingw32)
 	compiled by GNU C version 11.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version none
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 23424b72d090e8b977a96775bde79257
+<<<<<<< Updated upstream
 COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3ff8a.dir/'
  as -v -o CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj C:\Users\joaqu\AppData\Local\Temp\ccHRhuYo.s
 GNU assembler version 2.37 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.37
@@ -92,6 +106,15 @@ COMPILER_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/g
 LIBRARY_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../
 COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.'
 [2/2] Linking C executable cmTC_3ff8a.exe
+=======
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_6f0e2.dir/'
+ as -v -o CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj C:\Users\joaqu\AppData\Local\Temp\ccdxJvOk.s
+GNU assembler version 2.37 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.37
+COMPILER_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/
+LIBRARY_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.'
+[2/2] Linking C executable cmTC_6f0e2.exe
+>>>>>>> Stashed changes
 Using built-in specs.
 COLLECT_GCC=D:\Program Files\JetBrains\CLion 2023.1\bin\mingw\bin\gcc.exe
 COLLECT_LTO_WRAPPER=D:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/lto-wrapper.exe
@@ -102,9 +125,15 @@ Supported LTO compression algorithms: zlib
 gcc version 11.2.0 (GCC) 
 COMPILER_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/
 LIBRARY_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../
+<<<<<<< Updated upstream
 COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3ff8a.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3ff8a.'
  D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/collect2.exe -m i386pep -Bdynamic -o cmTC_3ff8a.exe D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtbegin.o -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0 -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../.. CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_3ff8a.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtend.o
 COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3ff8a.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3ff8a.'
+=======
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6f0e2.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_6f0e2.'
+ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/collect2.exe -m i386pep -Bdynamic -o cmTC_6f0e2.exe D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtbegin.o -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0 -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../.. CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_6f0e2.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6f0e2.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_6f0e2.'
+>>>>>>> Stashed changes
 
 
 
@@ -125,9 +154,15 @@ Parsed C implicit include dir info from above output: rv=done
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+<<<<<<< Updated upstream
   ignore line: [Change Dir: D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-2kfa7x]
   ignore line: []
   ignore line: [Run Build Command(s):D:/Program Files/JetBrains/CLion 2023.1/bin/ninja/win/x64/ninja.exe cmTC_3ff8a && [1/2] Building C object CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj]
+=======
+  ignore line: [Change Dir: D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ow92ho]
+  ignore line: []
+  ignore line: [Run Build Command(s):D:/Program Files/JetBrains/CLion 2023.1/bin/ninja/win/x64/ninja.exe cmTC_6f0e2 && [1/2] Building C object CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj]
+>>>>>>> Stashed changes
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=D:\Program Files\JetBrains\CLion 2023.1\bin\mingw\bin\gcc.exe]
   ignore line: [Target: x86_64-w64-mingw32]
@@ -135,8 +170,13 @@ Parsed C implicit link information from above output:
   ignore line: [Thread model: posix]
   ignore line: [Supported LTO compression algorithms: zlib]
   ignore line: [gcc version 11.2.0 (GCC) ]
+<<<<<<< Updated upstream
   ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3ff8a.dir/']
   ignore line: [ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/cc1.exe -quiet -v -iprefix D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/ -D_REENTRANT D:/Program Files/JetBrains/CLion 2023.1/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_3ff8a.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o C:\Users\joaqu\AppData\Local\Temp\ccHRhuYo.s]
+=======
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_6f0e2.dir/']
+  ignore line: [ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/cc1.exe -quiet -v -iprefix D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/ -D_REENTRANT D:/Program Files/JetBrains/CLion 2023.1/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_6f0e2.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o C:\Users\joaqu\AppData\Local\Temp\ccdxJvOk.s]
+>>>>>>> Stashed changes
   ignore line: [GNU C17 (GCC) version 11.2.0 (x86_64-w64-mingw32)]
   ignore line: [	compiled by GNU C version 11.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version none]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -157,8 +197,13 @@ Parsed C implicit link information from above output:
   ignore line: [	compiled by GNU C version 11.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version none]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 23424b72d090e8b977a96775bde79257]
+<<<<<<< Updated upstream
   ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3ff8a.dir/']
   ignore line: [ as -v -o CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj C:\Users\joaqu\AppData\Local\Temp\ccHRhuYo.s]
+=======
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_6f0e2.dir/']
+  ignore line: [ as -v -o CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj C:\Users\joaqu\AppData\Local\Temp\ccdxJvOk.s]
+>>>>>>> Stashed changes
   ignore line: [GNU assembler version 2.37 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.37]
   ignore line: [COMPILER_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/]
@@ -168,8 +213,13 @@ Parsed C implicit link information from above output:
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../]
+<<<<<<< Updated upstream
   ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.']
   ignore line: [[2/2] Linking C executable cmTC_3ff8a.exe]
+=======
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.']
+  ignore line: [[2/2] Linking C executable cmTC_6f0e2.exe]
+>>>>>>> Stashed changes
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=D:\Program Files\JetBrains\CLion 2023.1\bin\mingw\bin\gcc.exe]
   ignore line: [COLLECT_LTO_WRAPPER=D:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/lto-wrapper.exe]
@@ -186,9 +236,15 @@ Parsed C implicit link information from above output:
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../]
+<<<<<<< Updated upstream
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3ff8a.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3ff8a.']
   ignore line: [ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/collect2.exe -m i386pep -Bdynamic -o cmTC_3ff8a.exe D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtbegin.o -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0 -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../.. CMakeFiles/cmTC_3ff8a.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_3ff8a.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtend.o]
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3ff8a.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3ff8a.']
+=======
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6f0e2.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_6f0e2.']
+  ignore line: [ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/collect2.exe -m i386pep -Bdynamic -o cmTC_6f0e2.exe D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtbegin.o -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0 -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../.. CMakeFiles/cmTC_6f0e2.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_6f0e2.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtend.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6f0e2.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_6f0e2.']
+>>>>>>> Stashed changes
   ignore line: []
   ignore line: []
   implicit libs: []
@@ -198,9 +254,15 @@ Parsed C implicit link information from above output:
 
 
 Detecting CXX compiler ABI info compiled with the following output:
+<<<<<<< Updated upstream
 Change Dir: D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t3ych7
 
 Run Build Command(s):D:/Program Files/JetBrains/CLion 2023.1/bin/ninja/win/x64/ninja.exe cmTC_3b8bd && [1/2] Building CXX object CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj
+=======
+Change Dir: D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z4g9jt
+
+Run Build Command(s):D:/Program Files/JetBrains/CLion 2023.1/bin/ninja/win/x64/ninja.exe cmTC_53017 && [1/2] Building CXX object CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj
+>>>>>>> Stashed changes
 Using built-in specs.
 COLLECT_GCC=D:\Program Files\JetBrains\CLion 2023.1\bin\mingw\bin\g++.exe
 Target: x86_64-w64-mingw32
@@ -208,8 +270,13 @@ Configured with: ../gcc-11.2.0/configure --host=x86_64-w64-mingw32 --target=x86_
 Thread model: posix
 Supported LTO compression algorithms: zlib
 gcc version 11.2.0 (GCC) 
+<<<<<<< Updated upstream
 COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3b8bd.dir/'
  D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/cc1plus.exe -quiet -v -iprefix D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/ -D_REENTRANT D:/Program Files/JetBrains/CLion 2023.1/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_3b8bd.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o C:\Users\joaqu\AppData\Local\Temp\ccrTQtfc.s
+=======
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_53017.dir/'
+ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/cc1plus.exe -quiet -v -iprefix D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/ -D_REENTRANT D:/Program Files/JetBrains/CLion 2023.1/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_53017.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o C:\Users\joaqu\AppData\Local\Temp\cc7XP2CR.s
+>>>>>>> Stashed changes
 GNU C++17 (GCC) version 11.2.0 (x86_64-w64-mingw32)
 	compiled by GNU C version 11.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version none
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -236,6 +303,7 @@ GNU C++17 (GCC) version 11.2.0 (x86_64-w64-mingw32)
 	compiled by GNU C version 11.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version none
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 916242a6eadede3a42d72bc0142b939f
+<<<<<<< Updated upstream
 COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3b8bd.dir/'
  as -v -o CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\joaqu\AppData\Local\Temp\ccrTQtfc.s
 GNU assembler version 2.37 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.37
@@ -243,6 +311,15 @@ COMPILER_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/g
 LIBRARY_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../
 COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.'
 [2/2] Linking CXX executable cmTC_3b8bd.exe
+=======
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_53017.dir/'
+ as -v -o CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\joaqu\AppData\Local\Temp\cc7XP2CR.s
+GNU assembler version 2.37 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.37
+COMPILER_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/
+LIBRARY_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.'
+[2/2] Linking CXX executable cmTC_53017.exe
+>>>>>>> Stashed changes
 Using built-in specs.
 COLLECT_GCC=D:\Program Files\JetBrains\CLion 2023.1\bin\mingw\bin\g++.exe
 COLLECT_LTO_WRAPPER=D:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/lto-wrapper.exe
@@ -253,9 +330,15 @@ Supported LTO compression algorithms: zlib
 gcc version 11.2.0 (GCC) 
 COMPILER_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/
 LIBRARY_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/;D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../
+<<<<<<< Updated upstream
 COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3b8bd.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3b8bd.'
  D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/collect2.exe -m i386pep -Bdynamic -o cmTC_3b8bd.exe D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtbegin.o -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0 -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../.. CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_3b8bd.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtend.o
 COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3b8bd.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3b8bd.'
+=======
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53017.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_53017.'
+ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/collect2.exe -m i386pep -Bdynamic -o cmTC_53017.exe D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtbegin.o -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0 -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../.. CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_53017.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53017.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_53017.'
+>>>>>>> Stashed changes
 
 
 
@@ -282,9 +365,15 @@ Parsed CXX implicit include dir info from above output: rv=done
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+<<<<<<< Updated upstream
   ignore line: [Change Dir: D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t3ych7]
   ignore line: []
   ignore line: [Run Build Command(s):D:/Program Files/JetBrains/CLion 2023.1/bin/ninja/win/x64/ninja.exe cmTC_3b8bd && [1/2] Building CXX object CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj]
+=======
+  ignore line: [Change Dir: D:/joaqu/Documents/GitHub/Brandub/Brandub/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z4g9jt]
+  ignore line: []
+  ignore line: [Run Build Command(s):D:/Program Files/JetBrains/CLion 2023.1/bin/ninja/win/x64/ninja.exe cmTC_53017 && [1/2] Building CXX object CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj]
+>>>>>>> Stashed changes
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=D:\Program Files\JetBrains\CLion 2023.1\bin\mingw\bin\g++.exe]
   ignore line: [Target: x86_64-w64-mingw32]
@@ -292,8 +381,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [Thread model: posix]
   ignore line: [Supported LTO compression algorithms: zlib]
   ignore line: [gcc version 11.2.0 (GCC) ]
+<<<<<<< Updated upstream
   ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3b8bd.dir/']
   ignore line: [ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/cc1plus.exe -quiet -v -iprefix D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/ -D_REENTRANT D:/Program Files/JetBrains/CLion 2023.1/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_3b8bd.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o C:\Users\joaqu\AppData\Local\Temp\ccrTQtfc.s]
+=======
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_53017.dir/']
+  ignore line: [ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/cc1plus.exe -quiet -v -iprefix D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/ -D_REENTRANT D:/Program Files/JetBrains/CLion 2023.1/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_53017.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o C:\Users\joaqu\AppData\Local\Temp\cc7XP2CR.s]
+>>>>>>> Stashed changes
   ignore line: [GNU C++17 (GCC) version 11.2.0 (x86_64-w64-mingw32)]
   ignore line: [	compiled by GNU C version 11.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version none]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -320,8 +414,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [	compiled by GNU C version 11.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version none]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 916242a6eadede3a42d72bc0142b939f]
+<<<<<<< Updated upstream
   ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3b8bd.dir/']
   ignore line: [ as -v -o CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\joaqu\AppData\Local\Temp\ccrTQtfc.s]
+=======
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_53017.dir/']
+  ignore line: [ as -v -o CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\joaqu\AppData\Local\Temp\cc7XP2CR.s]
+>>>>>>> Stashed changes
   ignore line: [GNU assembler version 2.37 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.37]
   ignore line: [COMPILER_PATH=D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/]
@@ -331,8 +430,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../]
+<<<<<<< Updated upstream
   ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.']
   ignore line: [[2/2] Linking CXX executable cmTC_3b8bd.exe]
+=======
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.']
+  ignore line: [[2/2] Linking CXX executable cmTC_53017.exe]
+>>>>>>> Stashed changes
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=D:\Program Files\JetBrains\CLion 2023.1\bin\mingw\bin\g++.exe]
   ignore line: [COLLECT_LTO_WRAPPER=D:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/lto-wrapper.exe]
@@ -349,9 +453,15 @@ Parsed CXX implicit link information from above output:
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/]
   ignore line: [D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../]
+<<<<<<< Updated upstream
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3b8bd.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3b8bd.']
   ignore line: [ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/collect2.exe -m i386pep -Bdynamic -o cmTC_3b8bd.exe D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtbegin.o -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0 -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../.. CMakeFiles/cmTC_3b8bd.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_3b8bd.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtend.o]
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3b8bd.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3b8bd.']
+=======
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53017.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_53017.']
+  ignore line: [ D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/11.2.0/collect2.exe -m i386pep -Bdynamic -o cmTC_53017.exe D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtbegin.o -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0 -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib -LD:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../.. CMakeFiles/cmTC_53017.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_53017.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/crtend.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53017.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_53017.']
+>>>>>>> Stashed changes
   ignore line: []
   ignore line: []
   implicit libs: []

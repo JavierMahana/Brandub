@@ -1,4 +1,5 @@
 # ninja log v5
+<<<<<<< Updated upstream
 23	1069	7047614740776997	CMakeFiles/Brandub.dir/Move.cpp.obj	63f981477d0820e6
 9	1066	7047614740336337	CMakeFiles/Brandub.dir/main.cpp.obj	908ec43b5a99c693
 4	766	7047615988685463	CMakeFiles/Brandub.dir/Bitboard.cpp.obj	7196993a3357c9d2
@@ -17,3 +18,19 @@
 9	877	7047639031809404	CMakeFiles/Brandub.dir/Game.cpp.obj	121972e28e235adb
 3	1179	7047639034825781	CMakeFiles/Brandub.dir/Bitboard.cpp.obj	7196993a3357c9d2
 1179	1361	7047639036624204	Brandub.exe	e857b807deb640
+=======
+15	746	7048491199607347	CMakeFiles/Brandub.dir/Move.cpp.obj	63f981477d0820e6
+5	696	7048491199102490	CMakeFiles/Brandub.dir/main.cpp.obj	908ec43b5a99c693
+11	1086	7048491203013679	CMakeFiles/Brandub.dir/Bitboard.cpp.obj	7196993a3357c9d2
+21	864	7048491200782631	CMakeFiles/Brandub.dir/Game.cpp.obj	121972e28e235adb
+1086	1255	7048491204643343	Brandub.exe	e857b807deb640
+5	845	7048497789411211	CMakeFiles/Brandub.dir/main.cpp.obj	908ec43b5a99c693
+18	872	7048497789728188	CMakeFiles/Brandub.dir/Move.cpp.obj	63f981477d0820e6
+25	1111	7048497792123421	CMakeFiles/Brandub.dir/Game.cpp.obj	121972e28e235adb
+13	1429	7048497795331197	CMakeFiles/Brandub.dir/Bitboard.cpp.obj	7196993a3357c9d2
+1429	1642	7048497797406382	Brandub.exe	e857b807deb640
+3	881	7048502692772858	CMakeFiles/Brandub.dir/Game.cpp.obj	121972e28e235adb
+882	1103	7048502694940117	Brandub.exe	e857b807deb640
+4	522	7048503379993742	CMakeFiles/Brandub.dir/Game.cpp.obj	121972e28e235adb
+4	178	7048510089560310	Brandub.exe	e857b807deb640
+>>>>>>> Stashed changes

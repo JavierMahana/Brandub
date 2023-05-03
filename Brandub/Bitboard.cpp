@@ -403,7 +403,7 @@ float Bitboard::EvaluateEatenDanger(std::bitset<56> bitset, Bitboard::Direction 
 float Bitboard::EvaluateKingPosition(){
 
     auto kingPos = getBitsKing();
-    return 0;
+    return 2 * evaluateDangerInCell(kingPos, true);
 }
 
 float Bitboard::PieceOnSight(std::bitset<56> cellPosition, Bitboard::Direction direction, bool isWhite){
@@ -411,7 +411,28 @@ float Bitboard::PieceOnSight(std::bitset<56> cellPosition, Bitboard::Direction d
     std::bitset<56> shiftedCell = cellPosition;
     for (int i = 0; i < 7; ++i)
     {
+<<<<<<< Updated upstream
         shiftedCell = shiftDirection(shiftedCell, direction);
+=======
+        auto shiftedBits = shiftDirection(origin, direction);
+        if((shiftedBits & target).any())
+            return true;
+    }
+    return false;
+}
+
+void Bitboard::checkEat(Move move)  {
+    std::bitset<56> toMove = move.getToMove();
+    std::bitset<56> enemyCell;
+    bool isWhite = move.isWhiteTurnMove();
+
+    Direction directionToCapture;
+
+    if(bitGenerateCapture(toMove, isWhite, directionToCapture))
+    {
+        enemyCell = shiftDirection(toMove, directionToCapture);
+        std::cout << "Se debe comer una pieza!" << std::endl;
+>>>>>>> Stashed changes
 
         if(isWhite){
             if((shiftedCell & getBitsBlack()).any()){
@@ -436,6 +457,7 @@ bool Bitboard::CheckForMate(){
     std::bitset<56> cellMask = getBitsKing();
     int counter = 0;
 
+<<<<<<< Updated upstream
     for(int i = 0; i < 56; i++){
         if(cellMask.test(i)){
             std::bitset<56> shiftedCell = cellMask.test(i);
@@ -446,12 +468,183 @@ bool Bitboard::CheckForMate(){
                 if((shiftedCell & getBitsBlack()).any()){
                     counter++;
                 }
+=======
+bool Bitboard::bitGenerateCapture(std::bitset<56> bitToCheck, bool isWhite, Direction& captureDirection)
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        auto direction = static_cast<Bitboard::Direction>(i);
+        std::bitset<56> shiftedBit = bitToCheck;
+        while (true) {
+
+            shiftedBit = shiftDirection(shiftedBit, direction);
+
+            //We set the enemyPiece.
+            std::bitset<56> enemyPiece;
+
+            // we check if it's trapped between an enemy piece or a blocked cell
+            if (isWhite &&
+                    ((shiftedBit & getBitsBlack()).any() || (shiftedBit & getBlockedBits()).any())
+               )
+                enemyPiece = shiftedBit;
+            else if (!isWhite &&
+                        ((shiftedBit & getAllWhiteBits()).any() || (shiftedBit & getBlockedBits()).any())
+                )
+                enemyPiece = shiftedBit;
+
+            if (enemyPiece.none())
+                break;
+
+            shiftedBit = shiftDirection(shiftedBit, direction);
+
+            if(isAllyInCell(shiftedBit, isWhite) || (shiftedBit & getBlockedBits()).any())
+            {
+                captureDirection = direction;
+                return true;
+>>>>>>> Stashed changes
             }
         }
     }
     return counter == 4;
 }
 
+<<<<<<< Updated upstream
+=======
+//returns wheter a piece must be eaten
+bool Bitboard::bitMustBeEaten(std::bitset<56> bitToCheck, bool isWhite)
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        auto direction = static_cast<Bitboard::Direction>(i);
+        std::bitset<56> shiftedBit = bitToCheck;
+        while (true) {
+
+            shiftedBit = shiftDirection(shiftedBit, direction);
+
+            //We set the enemyPiece.
+            std::bitset<56> enemyPiece;
+
+            if (isWhite && (shiftedBit & getBitsBlack()).any())
+                enemyPiece = shiftedBit;
+            else if (!isWhite && (shiftedBit & getAllWhiteBits()).any())
+                enemyPiece = shiftedBit;
+
+            if (enemyPiece.none())
+                break;
+
+            //there is an enemy
+            //we check the opposite direction
+
+            shiftedBit = shiftDirection(bitToCheck, getOpositeDirection(direction));
+
+            if (isWhite && (shiftedBit & getBitsBlack()).any())
+                enemyPiece = shiftedBit;
+            else if (!isWhite && (shiftedBit & getAllWhiteBits()).any())
+                enemyPiece = shiftedBit;
+
+            if (enemyPiece.none())
+                break;
+
+            return true;
+        }
+    }
+    return false;
+}
+
+Bitboard::Direction Bitboard::getOpositeDirection(Bitboard::Direction direction){
+
+    switch (direction) {
+        case Direction::LEFT:
+            return Direction::RIGHT;
+        case Direction::RIGHT:
+            return Direction::LEFT;
+        case Direction::UP:
+            return Direction::DOWN;
+        case Direction::DOWN:
+            return Direction::UP;
+        default: return direction;
+    }
+}
+
+bool Bitboard::checkVictoryCondition(bool isWhite) {
+    if((getBitsKing() & getAllCorners()).any() && isWhite){
+        return true;
+    }
+    else if(getBitsKing().none() & !isWhite){
+        return true;
+    }
+    return false;
+}
+
+
+//
+//int Bitboard::EvaluateDangerInCell(std::bitset<56> cell, bool isWhite) {
+//    if(cell.count() == 0)
+//    {
+//        std::cout << "You can't use a cell that's empty" << std::endl;
+//        return 0;
+//    }
+//    if(cell.count() > 1)
+//    {
+//        std::cout << "It may cause an error to have a cell of more than 1 cell" << std::endl;
+//    }
+//
+//    int DangerScore = 0;
+//    bool mayBeEaten;
+//
+//
+//
+//    for (int i = 0; i < 4; ++i){
+//
+//        auto direction = static_cast<Bitboard::Direction>(i);
+//        auto neighborCell = shiftDirection(cell, direction);
+//
+//        mayBeEaten = false;
+//
+//        // revisar si cuantos enemigos adyacentes (2)
+//        if((shiftedCell & getBitsBlack()).any() && isWhite){
+//            DangerScore += 1;
+//            mayBeEaten = true;
+//        }
+//        else if((shiftedCell & getAllWhiteBits()).any() && !isWhite){
+//            DangerScore += 1;
+//            mayBeEaten = true;
+//        }
+//            // else the adyacent cell is free. So we must check on the remaining directions of the adyacent cell
+//        else{
+//            adyacentCell = shiftedCell;
+//            //DangerScore += FUNCTION THAT CHECKS ENEMIES IN 4 DIRECTIONS(ADYACENT CELL, DIRECTION);
+//        }
+//        // revisar la opuesta a un enemigo (desocupada, ocupada por amigo)
+//        if(mayBeEaten){
+//            Bitboard::Direction oppositeDirection = direction;
+//
+//            switch (direction) {
+//                case Bitboard::Direction::LEFT:
+//                    oppositeDirection = Bitboard::Direction::RIGHT;
+//                    break;
+//                case Bitboard::Direction::RIGHT:
+//                    oppositeDirection = Bitboard::Direction::LEFT;
+//                    break;
+//                case Bitboard::Direction::UP:
+//                    oppositeDirection = Bitboard::Direction::DOWN;
+//                    break;
+//                case Bitboard::Direction::DOWN:
+//                    oppositeDirection = Bitboard::Direction::UP;
+//                    break;
+//                default: break;
+//            }
+//
+//            shiftedCell = cellMask;
+//            adyacentCell = shiftDirection(shiftedCell, oppositeDirection);
+//            // si esta desocupada revisar si hay aliados o enemigos en las rectas
+//            //DangerScore += FUNCTION THAT CHECKS ENEMIES IN 4 DIRECTIONS(ADYACENT CELL, DIRECTION);
+//        }
+//    }
+//    return DangerScore;
+//}
+
+>>>>>>> Stashed changes
 
 
 /*

@@ -72,6 +72,30 @@ public:
     std::bitset<56> dilateBits(std::bitset<56> bitset, DirectionFlag dilateDirection);
     std::bitset<56> erodeBits(std::bitset<56> bitset, DirectionFlag erodeDirection);
 
+<<<<<<< Updated upstream
+=======
+    Direction getOpositeDirection(Direction direction);
+
+    void print();
+    void print(std::bitset<56> bitsetToPrint);
+
+    bool tryMove(Move move);
+    bool isOnSight(std::bitset<56> a, std::bitset<56> b, Direction direction);
+
+    bool isAllyInCell(std::bitset<56> cellToCheck, bool isWhite);
+    bool checkVictoryCondition(bool isWhite);
+    bool checkKingPosition(std::bitset<56> cellPosition){return (cellPosition & getBitsKing()).any();}
+    void checkEat(Move move);
+
+    bool bitGenerateCapture(std::bitset<56> bitToCheck, bool isWhite, Direction& captureDirection);
+    bool bitMustBeEaten(std::bitset<56> bitToCheck, bool isWhite);
+
+    int evaluateDangerInCell(std::bitset<56> cell, bool isWhite);
+    int evaluateEatenDanger(std::bitset<56> bitset, Direction direction);
+    int evaluateBoard();
+    int evaluateKingPosition();
+
+>>>>>>> Stashed changes
     //Getter and setter of bits
     const std::bitset<56> &getBitsWhite() const;
     void setBitsWhite(const std::bitset<56> &bitsWhite);

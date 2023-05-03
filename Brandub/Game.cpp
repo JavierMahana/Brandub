@@ -10,16 +10,20 @@
 
 Game::Game() {
     whiteTurn = true;
+
+    bool whiteWon = false;
+    bool blackWon = false;
+
     srand(time(NULL));
 }
 
 
 bool Game::hasWhiteWon() const{
-    return false;
+    return whiteWon;
 }
 
 bool Game::hasBlackWon() const{
-    return false;
+    return blackWon;
 }
 
 void Game::gameLoop() {
@@ -34,6 +38,14 @@ void Game::gameLoop() {
     std::cout << "King:" << gameBoard.getKingChar() << std::endl;
     std::cout << std::endl;
 
+<<<<<<< Updated upstream
+=======
+    
+    while(!hasWhiteWon() && !hasBlackWon())
+    {
+        gameBoard.print();
+        bool repeatLoop = false;
+>>>>>>> Stashed changes
 
     while(!hasBlackWon() && !hasWhiteWon()){
         gameBoard.Print();
@@ -92,8 +104,14 @@ void Game::gameLoop() {
         std::cout << "You selected the: \"" << input << "\" square" << std::endl;
         std::cout << std::endl;
 
+<<<<<<< Updated upstream
         // Selection of position to move
         while (true){
+=======
+
+        while (true)
+        {
+>>>>>>> Stashed changes
             std::cout << "Now enter the square that you want to move to, or \"q\" to select another piece." << std::endl;
             std::cin >> input;
 
@@ -113,6 +131,8 @@ void Game::gameLoop() {
                 continue;
             }
 
+            std::cin.clear();
+
             //Here we know that we have a legal move!!!
             break;
 
@@ -131,10 +151,22 @@ void Game::gameLoop() {
         //Check for Mate
         gameBoard.CheckForMate();
 
+        if (whiteTurn) {
+            whiteWon = gameBoard.checkVictoryCondition(whiteTurn);
+            WinnerString = "white player";
+        }
+        else {
+            blackWon = gameBoard.checkVictoryCondition(whiteTurn);
+            WinnerString = "black player";
+        }
+
         //change the turn
         whiteTurn = !whiteTurn;
 
     }
+
+    std::cout << "END OF THE GAME: "<< WinnerString << " has won the game!!!" << std::endl;
+
 }
 
 //it checks if the string input is in the correct format and also returns the cell index that the string references.
