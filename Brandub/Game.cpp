@@ -14,11 +14,11 @@ Game::Game() {
 }
 
 bool Game::hasWhiteWon() const{
-    return false;
+    return whiteWon;
 }
 
 bool Game::hasBlackWon() const{
-    return false;
+    return blackWon;
 }
 
 void Game::gameLoop() {
@@ -38,7 +38,6 @@ void Game::gameLoop() {
     {
         gameBoard.print();
         bool repeatLoop = false;
-
 
         std::string colorTurnString = whiteTurn ? "white" : "black";
 
@@ -138,13 +137,32 @@ void Game::gameLoop() {
         //Try to move the piece
         gameBoard.tryMove(turnMove);
 
+        //Updates the moveHistory to check for draws
+        gameBoard.updateMoveHistory();
+
         //change the turn
         whiteTurn = !whiteTurn;
 
-        //do the game loop
-        //std::cout << "Leaving... temporal..." << std::endl;
-        //break;
+        //Check for a winner
+        if(gameBoard.getPossibleWinner() == Bitboard::CellType::WHITE)
+            whiteWon = true;
+        else if(gameBoard.getPossibleWinner() == Bitboard::CellType::BLACK)
+            blackWon = true;
+        else if(gameBoard.isDraw()){
+            whiteWon = true;
+            blackWon = true;
+        }
     }
+
+    std::cout << "END OF THE MATCH" << std::endl;
+    if(whiteWon)
+        std::cout << "WHITE WINS" << std::endl;
+    else if(blackWon)
+        std::cout << "BLACK WINS" << std::endl;
+    else if(blackWon & whiteWon)
+        std::cout << "DRAW!" << std::endl;
+    else
+        std::cout << "ERROR: no winners" << std::endl;
 }
 
 //it checks if the string input is in the correct format and also returns the cell index that the string references.

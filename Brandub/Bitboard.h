@@ -8,6 +8,7 @@
 
 #include <bitset>
 #include <string>
+#include <stack>
 
 class Move;
 
@@ -44,18 +45,25 @@ public:
     const char CORNER_CHAR = 'O';
 
 
-    const int DANGER_ALLY_ADYACENT = -1;
-    const int DANGER_ENEMY_ADYACENT = 2;
-    const int DANGER_ADYACENT_ENEMY_ONSIGHT = 1;
-    const int DANGER_ENEMY_MAYEAT = 3;
-    const int DANGER_KING_FACTOR = 3;
+    const float BASE_PIECE_VALUE = 8f;
+    const float WHITE_PIECES_FACTOR = 1.6f;
 
-    const int FLEE_ENEMY_ONSIGHT = 1;
-    const int FLEE_EMPTY_ADYACENT = 2;
-    const int FLEE_ALLY_ONSIGHT = 3;
-    const int FLEE_BLOCK_ONSIGHT = 3;
-    const int KING_VICTORY_ON_BORDER = 3;
-    const int PIECE_EVAL = 8;
+
+    const int DANGER_ALLY_ADYACENT = -BASE_PIECE_VALUE * 2/8;
+    const int DANGER_ENEMY_ADYACENT = BASE_PIECE_VALUE * 3/8;
+    const int DANGER_ADYACENT_ENEMY_ONSIGHT = 1;
+    const int DANGER_ENEMY_MAY_EAT = BASE_PIECE_VALUE * 5/8;
+    const int DANGER_ENEMY_MAY_EAT_KING = INT_MAX;
+    const float DANGER_KING_FACTOR = 2.5f;
+
+    const int KING_MOBILITY_EMPTY_ADYACENT = BASE_PIECE_VALUE * 1 / 2;
+
+    const int KING_POSITION_ON_BORDER = 3;
+    const int KING_POSITION_ON_SIGHT = 8;
+
+    const int BLACK_CAN_BLOCK_KING = INT_MAX - 2;
+
+
 
 
     enum class DirectionFlag : unsigned int {
@@ -71,6 +79,7 @@ public:
         UP,
         DOWN
     };
+
     enum class CellType {
         BLACK,
         WHITE,
@@ -82,9 +91,14 @@ public:
 
 private:
 
+
+
+
     std::bitset<56> bitsWhite;
     std::bitset<56> bitsBlack;
     std::bitset<56> bitsKing;
+
+    std::stack<std::bitset<56>> moveHistory;
 
 public:
 
@@ -117,18 +131,30 @@ public:
     bool bitsOnSight(std::bitset<56> a, std::bitset<56> b);
 
     bool isAllyInCell(std::bitset<56> cellToCheck, bool isWhite);
-    bool checkForMate();
+    Bitboard::CellType getPossibleWinner();
     bool checkKingPosition(std::bitset<56> cellPosition){return (cellPosition & getBitsKing()).any();}
     void checkEat(Move move);
 
     bool bitGenerateCapture(std::bitset<56> bitToCheck, bool isWhite, Direction& captureDirection);
     bool bitMustBeEaten(std::bitset<56> bitToCheck, bool isWhite);
 
-    int evaluateDangerInCell(bool isWhiteTurn, std::bitset<56> cell, bool isWhite);
-    int evaluateBoard(bool isWhiteTurn);
-    int evaluateKingPosition(bool isWhiteTurn);
-    int evaluateKingFleeChances(bool isWhiteTurn);
-    int evaluateKingVictory(bool isWhiteTurn);
+    float evaluateDangerInCell(bool isWhiteTurn, std::bitset<56> cell, bool isWhite);
+    float evaluateDangerInCellKing(bool isWhiteTurn, std::bitset<56> cell, bool isWhite);
+    float evaluateBoard(bool isWhiteTurn);
+    float evaluateKingDanger(bool isWhiteTurn);
+    float evaluateKingMobility(bool isWhiteTurn);
+    float evaluateKingPosition(bool isWhiteTurn);
+    float evaluatePiecesDanger(bool isWhiteTurn);
+
+
+    std::stack<std::bitset<56>> allLegalMoves(bool isWhite);
+    std::stack<std::bitset<56>> getLegalMoves(std::bitset<56> piece);
+
+    std::stack<std::bitset<56>> getIndividualBitsOfBitset(std::bitset<56> bitset);
+
+    bool isDraw();
+    void updateMoveHistory();
+    void clearMoveHistory();
 
     //Getter and setter of bits
     const std::bitset<56> &getBitsWhite() const;
@@ -145,6 +171,7 @@ public:
     const char getEmptyChar(){return EMPTY_CHAR;}
     const char getBlockChar(){return BLOCK_CHAR;}
     const char getCornerChar(){return CORNER_CHAR;}
+
 
 };
 

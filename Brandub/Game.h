@@ -29,7 +29,8 @@ private:
 
     Bitboard gameBoard;
     bool whiteTurn;
-
+    bool whiteWon;
+    bool blackWon;
 public:
 
 //it is reversed because the std::bitset stores the bits in the order of least important first (reverse)
