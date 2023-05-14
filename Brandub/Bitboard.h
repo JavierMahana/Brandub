@@ -24,6 +24,13 @@ public:
     const std::bitset<56> TOP_RIGHT_CORNER {"00000010000000000000000000000000000000000000000000000000"};
     const std::bitset<56> BOTTOM_LEFT_CORNER {"00000000000000000000000000000000000000000000000010000000"};
     const std::bitset<56> BOTTOM_RIGHT_CORNER {"00000000000000000000000000000000000000000000000000000010"};
+    const std::bitset<56> BORDER {"11111110"
+                                      "10000010"
+                                      "10000010"
+                                      "10000010"
+                                      "10000010"
+                                      "10000010"
+                                      "11111110"};
 
     const std::bitset<56> START_BLACK {"00010000000100000000000011000110000000000001000000010000"};
     const std::bitset<56> START_KING {"00000000000000000000000000010000000000000000000000000000"};
@@ -34,6 +41,22 @@ public:
     const char KING_CHAR = 'K';
     const char EMPTY_CHAR = ' ';
     const char BLOCK_CHAR = 'X';
+    const char CORNER_CHAR = 'O';
+
+
+    const int DANGER_ALLY_ADYACENT = -1;
+    const int DANGER_ENEMY_ADYACENT = 2;
+    const int DANGER_ADYACENT_ENEMY_ONSIGHT = 1;
+    const int DANGER_ENEMY_MAYEAT = 3;
+    const int DANGER_KING_FACTOR = 3;
+
+    const int FLEE_ENEMY_ONSIGHT = 1;
+    const int FLEE_EMPTY_ADYACENT = 2;
+    const int FLEE_ALLY_ONSIGHT = 3;
+    const int FLEE_BLOCK_ONSIGHT = 3;
+    const int KING_VICTORY_ON_BORDER = 3;
+    const int PIECE_EVAL = 8;
+
 
     enum class DirectionFlag : unsigned int {
         LEFT = 1 << 0,
@@ -47,6 +70,14 @@ public:
         RIGHT,
         UP,
         DOWN
+    };
+    enum class CellType {
+        BLACK,
+        WHITE,
+        KING,
+        BLOCK,
+        CORNER,
+        EMPTY
     };
 
 private:
@@ -76,11 +107,14 @@ public:
 
     Direction getOpositeDirection(Direction direction);
 
+    CellType getCellType(std::bitset<56> bit);
+
     void print();
     void print(std::bitset<56> bitsetToPrint);
 
     bool tryMove(Move move);
-    bool isOnSight(std::bitset<56> a, std::bitset<56> b, Direction direction);
+    CellType pieceOnSight(std::bitset<56> a, Direction direction);
+    bool bitsOnSight(std::bitset<56> a, std::bitset<56> b);
 
     bool isAllyInCell(std::bitset<56> cellToCheck, bool isWhite);
     bool checkForMate();
@@ -90,10 +124,11 @@ public:
     bool bitGenerateCapture(std::bitset<56> bitToCheck, bool isWhite, Direction& captureDirection);
     bool bitMustBeEaten(std::bitset<56> bitToCheck, bool isWhite);
 
-    int evaluateDangerInCell(std::bitset<56> cell, bool isWhite);
-    int evaluateEatenDanger(std::bitset<56> bitset, Direction direction);
-    int evaluateBoard();
-    int evaluateKingPosition();
+    int evaluateDangerInCell(bool isWhiteTurn, std::bitset<56> cell, bool isWhite);
+    int evaluateBoard(bool isWhiteTurn);
+    int evaluateKingPosition(bool isWhiteTurn);
+    int evaluateKingFleeChances(bool isWhiteTurn);
+    int evaluateKingVictory(bool isWhiteTurn);
 
     //Getter and setter of bits
     const std::bitset<56> &getBitsWhite() const;
@@ -109,6 +144,7 @@ public:
     const char getKingChar(){return KING_CHAR;}
     const char getEmptyChar(){return EMPTY_CHAR;}
     const char getBlockChar(){return BLOCK_CHAR;}
+    const char getCornerChar(){return CORNER_CHAR;}
 
 };
 
