@@ -7,12 +7,33 @@
 #include "Bitboard.h"
 #include "Move.h"
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCDFAInspection"
+
 Bitboard::Bitboard()
 {
     setBitsWhite(Bitboard::START_WHITE);
     setBitsKing(Bitboard::START_KING);
     setBitsBlack(Bitboard::START_BLACK);
 }
+
+Bitboard::Bitboard(std::bitset<56> bitsWhite, std::bitset<56> bitsBlack, std::bitset<56> bitsKing)//, std::stack<Bitboard *> moveHistory)
+{
+    setBitsWhite(bitsWhite);
+    setBitsKing(bitsBlack);
+    setBitsBlack(bitsKing);
+    //setHistory(moveHistory);
+}
+
+Bitboard::~Bitboard() {
+    // Free the memory pointed to by the pointers in the move history
+    while (!moveHistory.empty()) {
+        delete moveHistory.top();
+        moveHistory.pop();
+    }
+}
+
+
 
 //TODO: Print the square names.
 //   A B C D
@@ -49,7 +70,7 @@ void Bitboard::print() {
             else if(getFull()[i] != 0 && bitsKing[i] != 0){
                 std::cout << getKingChar();
             }
-            else if(getFull()[i] != 0 && getAllCorners()[i] != 0){
+            else if(getFull()[i] != 0 && getAllCorners() != 0){
                 std::cout << getCornerChar();
             }
             else if(getFull()[i] != 0 && getBlockedBits()[i] != 0 && getBlockedBits()[i] != bitsKing[i]){
@@ -170,23 +191,31 @@ void Bitboard::setBitsKing(const std::bitset<56> &bitsKing) {
   Bitboard::bitsKing = bitsKing;
 }
 
-std::bitset<56> Bitboard::shiftUp(std::bitset<56> bitset) {
+const std::stack<Bitboard*> &Bitboard::getHistory() const {
+    return moveHistory;
+}
+
+void Bitboard::setHistory(std::stack<Bitboard*> newHistory){
+    moveHistory = newHistory;
+}
+
+std::bitset<56> Bitboard::shiftUp(std::bitset<56> bitset) const {
   return bitset << 8 & BOARD_MASK;
 }
 
-std::bitset<56> Bitboard::shiftDown(std::bitset<56> bitset) {
+std::bitset<56> Bitboard::shiftDown(std::bitset<56> bitset) const {
   return bitset >> 8 & BOARD_MASK;
 }
 
-std::bitset<56> Bitboard::shiftLeft(std::bitset<56> bitset) {
+std::bitset<56> Bitboard::shiftLeft(std::bitset<56> bitset) const {
   return bitset << 1 & BOARD_MASK;
 }
 
-std::bitset<56> Bitboard::shiftRight(std::bitset<56> bitset) {
+std::bitset<56> Bitboard::shiftRight(std::bitset<56> bitset) const {
   return bitset >> 1 & BOARD_MASK;
 }
 
-std::bitset<56> Bitboard::shiftDirection(std::bitset<56> bitset, Bitboard::Direction direction) {
+std::bitset<56> Bitboard::shiftDirection(std::bitset<56> bitset, Bitboard::Direction direction) const {
   switch (direction)
   {
       case Direction::LEFT:
@@ -204,7 +233,7 @@ std::bitset<56> Bitboard::shiftDirection(std::bitset<56> bitset, Bitboard::Direc
 
 }
 
-std::bitset<56> Bitboard::dilateBits(std::bitset<56> bitset, Bitboard::DirectionFlag dilateDirection) {
+std::bitset<56> Bitboard::dilateBits(std::bitset<56> bitset, Bitboard::DirectionFlag dilateDirection) const {
 
   std::bitset<56> result = bitset;
 
@@ -258,7 +287,7 @@ std::bitset<56> Bitboard::erodeBits(std::bitset<56> bitset, Bitboard::DirectionF
   return result;
 }
 
-float Bitboard::evaluateBoard(bool isWhiteTurn) {
+float Bitboard::evaluateBoard(bool isWhiteTurn) const {
 
     //the material of a piece is the main comparative when evaluating
     float materialBalance = BASE_PIECE_VALUE * (getBitsWhite().count() * WHITE_PIECES_FACTOR - getBitsBlack().count());
@@ -273,7 +302,7 @@ float Bitboard::evaluateBoard(bool isWhiteTurn) {
     return materialBalance + kingValue + piecesPositionEval;
 }
 
-float Bitboard::evaluatePiecesDanger(bool isWhiteTurn) {
+float Bitboard::evaluatePiecesDanger(bool isWhiteTurn) const {
     float piecesPositionEval = 0;
 
     //white adds negative value because the danger is a bad evaluation.
@@ -298,9 +327,8 @@ float Bitboard::evaluatePiecesDanger(bool isWhiteTurn) {
     return piecesPositionEval;
 }
 
-
 //Evaluates the king position. It is always a negative value
-float Bitboard::evaluateKingDanger(bool isWhiteTurn){
+float Bitboard::evaluateKingDanger(bool isWhiteTurn) const {
 
     auto kingPos = getBitsKing();
 
@@ -328,7 +356,7 @@ float Bitboard::evaluateKingDanger(bool isWhiteTurn){
     }
 }
 //
-float Bitboard::evaluateKingMobility(bool isWhiteTurn) {
+float Bitboard::evaluateKingMobility(bool isWhiteTurn) const {
     auto kingPos = getBitsKing();
     std::bitset<56> shiftedCell;
     std::bitset<56> adyacentCell;
@@ -352,7 +380,7 @@ float Bitboard::evaluateKingMobility(bool isWhiteTurn) {
 
 }
 
-float Bitboard::evaluateKingPosition(bool isWhiteTurn) {
+float Bitboard::evaluateKingPosition(bool isWhiteTurn) const {
     auto kingPos = getBitsKing();
 
     bool isOnBorder = (kingPos & BORDER).any();
@@ -373,7 +401,7 @@ float Bitboard::evaluateKingPosition(bool isWhiteTurn) {
             kingVictoryScore = KING_POSITION_ON_SIGHT;
             //White/King on turn may achieve victory
             if(isWhiteTurn){
-                return kingVictoryScore = INT_MAX;
+                return kingVictoryScore = INT_MAX - 1;
             }
 
             //Black on turn must stop victory from being achieved
@@ -402,10 +430,9 @@ float Bitboard::evaluateKingPosition(bool isWhiteTurn) {
     return 0;
 }
 
-
 //this function is to evaluate the special king cases: in the center square or adyacent to it.
 //It weighted with the correct values buy in positive.
-float Bitboard::evaluateDangerInCellKing(bool isWhiteTurn, std::bitset<56> bitset, bool isWhite) {
+float Bitboard::evaluateDangerInCellKing(bool isWhiteTurn, std::bitset<56> bitset, bool isWhite) const {
     std::bitset<56> cellMask = bitset;
     std::bitset<56> shiftedCell;
     std::bitset<56> adyacentCell;
@@ -482,7 +509,7 @@ float Bitboard::evaluateDangerInCellKing(bool isWhiteTurn, std::bitset<56> bitse
 }
 
 //el peligro lo voy a cambiar para que sea primero un numero entero de rangos [-a, a]
-float Bitboard::evaluateDangerInCell(bool isWhiteTurn, std::bitset<56> bitset, bool isWhite) {
+float Bitboard::evaluateDangerInCell(bool isWhiteTurn, std::bitset<56> bitset, bool isWhite) const {
     std::bitset<56> cellMask = bitset;
     std::bitset<56> shiftedCell;
     std::bitset<56> adyacentCell;
@@ -556,9 +583,8 @@ float Bitboard::evaluateDangerInCell(bool isWhiteTurn, std::bitset<56> bitset, b
     return DangerScore;
 }
 
-
 //fucnión que revisa que es lo primero que hay en una dirección
-Bitboard::CellType Bitboard::pieceOnSight(std::bitset<56> origin, Bitboard::Direction direction){
+Bitboard::CellType Bitboard::pieceOnSight(std::bitset<56> origin, Bitboard::Direction direction) const {
     //If the bidoboards see each other in the selected direction
 
     //bitboardA -> se mueve por los bits
@@ -656,7 +682,7 @@ bool Bitboard::bitGenerateCapture(std::bitset<56> bitToCheck, bool isWhite, Dire
 }
 
 //Yo lo que queria hacer era que revisas el bit y ves si tiene a los 2 lados un enemigo.
-bool Bitboard::bitMustBeEaten(std::bitset<56> bitToCheck, bool isWhite)
+bool Bitboard::bitMustBeEaten(std::bitset<56> bitToCheck, bool isWhite) const
 {
     for (int i = 0; i < 4; ++i)
     {
@@ -696,7 +722,7 @@ bool Bitboard::bitMustBeEaten(std::bitset<56> bitToCheck, bool isWhite)
     return false;
 }
 
-Bitboard::Direction Bitboard::getOpositeDirection(Bitboard::Direction direction){
+Bitboard::Direction Bitboard::getOpositeDirection(Bitboard::Direction direction) const {
 
     switch (direction) {
         case Direction::LEFT:
@@ -708,8 +734,8 @@ Bitboard::Direction Bitboard::getOpositeDirection(Bitboard::Direction direction)
         case Direction::DOWN:
             return Direction::UP;
     }
+    return Direction::UP;
 }
-
 
 //estan 2 bits a la vista sin otra pieza entre medio?
 bool Bitboard::bitsOnSight(std::bitset<56> a, std::bitset<56> b) {
@@ -734,7 +760,7 @@ bool Bitboard::bitsOnSight(std::bitset<56> a, std::bitset<56> b) {
     return false;
 }
 
-Bitboard::CellType Bitboard::getCellType(std::bitset<56> bit) {
+Bitboard::CellType Bitboard::getCellType(std::bitset<56> bit) const {
 
     if(bit.count() != 1)
     {
@@ -767,53 +793,115 @@ Bitboard::CellType Bitboard::getCellType(std::bitset<56> bit) {
     return Bitboard::CellType::EMPTY;
 }
 
-std::stack<std::bitset<56>> Bitboard::allLegalMoves(bool isWhite){
-
+std::stack<Bitboard> Bitboard::allLegalMoves(bool isWhite) const {
     // Stack that will contain the stacks of each piece's legal moves
-    std::stack<std::stack<std::bitset<56>>> stack;
+    std::stack<Bitboard> stack;
+    std::stack<std::bitset<56>> colorPlayer;
 
-    if(isWhite){
-        stack.push(getIndividualBitsOfBitset(getAllWhiteBits()));
+    if(isWhite)
+        colorPlayer = getIndividualBitsOfBitset(getAllWhiteBits());
+    else
+        colorPlayer = getIndividualBitsOfBitset(getBitsBlack());
+
+    while(!colorPlayer.empty()){
+        auto topPiece = colorPlayer.top();
+        colorPlayer.pop();
+
+        auto pieceGet = getLegalMoves(topPiece, isWhite);
+
+        while(!pieceGet.empty()) {
+            auto topMove = pieceGet.top();
+            pieceGet.pop();
+            stack.push(topMove);
+        }
     }
-    else{
-        stack.push(getIndividualBitsOfBitset(getBitsBlack()));
-    }
+
+    return stack;
 }
-std::stack<std::bitset<56>> Bitboard::getLegalMoves(std::bitset<56> piece){
+
+std::stack<Bitboard> Bitboard::getLegalMoves(std::bitset<56> piece, bool isWhite) const {
     // stack for all the legal moves of the piece
-    std::stack<std::bitset<56>> stack;
+    std::stack<Bitboard> stack;
     std::bitset<56> shiftedCell;
+
+
+    PieceType pieceType;
+    if(isWhite){
+        if((piece & getBitsKing()).any())
+            pieceType = PieceType::KING;
+        else
+            pieceType = PieceType::WHITE;
+    }
+    else
+        pieceType = PieceType::BLACK;
+
 
     // we check on all 4 directions for empty cells
     for (int i = 0; i < 4; ++i){
         auto direction = static_cast<Bitboard::Direction>(i);
         shiftedCell = piece;
-        for (int i = 0; i < 7; ++i)
+        for (int j = 0; j < 7; ++j)
         {
             // if it is valid and empty we add it to the stack,
             // else if it is occupied we stop searching that direction
             shiftedCell = shiftDirection(shiftedCell, direction);
-            if((shiftedCell & BOARD_MASK).none())
+            if((shiftedCell & BOARD_MASK).any())
             {
                 auto cellType = getCellType(shiftedCell);
-                if(cellType == CellType::EMPTY)
-                    stack.push(shiftedCell);
-                else
+                if(cellType == CellType::EMPTY){
+
+                    std::bitset<56> copyBitset;
+                    Bitboard boardWithMove;
+                                        //It must create a new Bitboard with the move generated.
+                    switch (pieceType) {
+                        case PieceType::WHITE:
+                            copyBitset = getBitsWhite();
+                            //we remove the piece bit from the copy bitset
+                            copyBitset ^= piece;
+                            copyBitset |= shiftedCell;
+                            boardWithMove = Bitboard(copyBitset, std::bitset<56>(), std::bitset<56>());//, moveHistory());
+
+                            break;
+                        case PieceType::BLACK:
+                            copyBitset = getBitsBlack();
+                            //we remove the piece bit from the copy bitset
+                            copyBitset ^= piece;
+                            copyBitset |= shiftedCell;
+                            boardWithMove = Bitboard(std::bitset<56>(), copyBitset, std::bitset<56>());//, moveHistory);
+
+                            break;
+                        case PieceType::KING:
+                            copyBitset = getBitsKing();
+                            //we remove the piece bit from the copy bitset
+                            copyBitset ^= piece;
+                            copyBitset |= shiftedCell;
+                            boardWithMove = Bitboard(std::bitset<56>(), std::bitset<56>(), copyBitset);//, moveHistory);
+
+                            break;
+                    }
+                    // And add it to the LEGAL MOVES!
+                    stack.push(boardWithMove);
+                }
+                else{
                     break;
+                }
             }
             else{
                 break;
             }
         }
     }
+
+    return stack;
+
 }
 
-bool Bitboard::isDraw() {
+bool Bitboard::isDraw() const {
 
-    std::stack<std::bitset<56>> stackCopy = moveHistory;
+    auto stackCopy = moveHistory;
 
     while (!stackCopy.empty()) {
-        if(stackCopy.top() == BOARD_MASK){
+        if(stackCopy.top() == this){
             return true;
         }
         stackCopy.pop();
@@ -822,16 +910,17 @@ bool Bitboard::isDraw() {
 }
 
 void Bitboard::updateMoveHistory(){
-    auto latestBoard = BOARD_MASK;
-    moveHistory.push(latestBoard);
+    auto latestBoard = this;
+    moveHistory.push(this);
 }
 
 void Bitboard::clearMoveHistory(){
-    // we swamp a new empty stack for the current moveHistory - optimal way to clear a stack
-    std::stack<std::bitset<56>>().swap(moveHistory);
+    std::stack<Bitboard*> emptyStack;
+    // we swap a new empty stack for the current moveHistory - optimal way to clear a stack
+    emptyStack.swap(moveHistory);
 }
 
-std::stack<std::bitset<56>> Bitboard::getIndividualBitsOfBitset(std::bitset<56> bitset) {
+std::stack<std::bitset<56>> Bitboard::getIndividualBitsOfBitset(std::bitset<56> bitset) const {
 
     std::stack<std::bitset<56>> arrayOfIndividualBits;
 
@@ -850,11 +939,25 @@ Bitboard::CellType Bitboard::getPossibleWinner(){
     if(getBitsKing().any()){
         return CellType::BLACK;
     }
-    if((getBitsKing() & getAllCorners()).any()){
+    else if((getBitsKing() & getAllCorners()).any()){
         return CellType::WHITE;
     }
 
     return CellType::EMPTY;
+}
+
+Bitboard::BoardState Bitboard::getCurrentBoardState() const{
+    // if king is dead
+    if(getBitsKing().none()){
+        return Bitboard::BoardState::BLACK_WON;
+    }
+    if((getBitsKing() & getAllCorners()).any()){
+        return Bitboard::BoardState::WHITE_WON;
+    }
+    else if(isDraw())
+        return Bitboard::BoardState::DRAW;
+
+    return Bitboard::BoardState::PLAYING;
 }
 
 
@@ -865,3 +968,7 @@ Bitboard::CellType Bitboard::getPossibleWinner(){
 
 
 
+
+
+
+#pragma clang diagnostic pop

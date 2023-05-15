@@ -7,6 +7,7 @@
 
 
 #include "Bitboard.h"
+#include <bitset>
 
 class Game {
 
@@ -31,7 +32,15 @@ private:
     bool whiteTurn;
     bool whiteWon;
     bool blackWon;
+
+    struct searchMove{
+        float score;
+        Bitboard move;
+    };
 public:
+
+    float alphaBeta(Bitboard board, int depth, int alpha, int beta);
+    searchMove negamax(const Bitboard& board,bool isWhiteTurn, int depth);
 
 //it is reversed because the std::bitset stores the bits in the order of least important first (reverse)
      const std::string boardMap[56]{

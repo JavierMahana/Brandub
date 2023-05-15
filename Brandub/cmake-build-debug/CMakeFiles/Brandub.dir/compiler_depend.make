@@ -167,9 +167,27 @@ CMakeFiles/Brandub.dir/Bitboard.cpp.obj: C:/Users/Javier/Documentos/GitHub/Brand
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h \
   C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Bitboard.h \
-  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset \
   C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Move.h \
-  C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Game.h
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stack \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_stack.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/align.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bit \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/concurrence.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_atomic.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h
 
 CMakeFiles/Brandub.dir/Game.cpp.obj: C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Game.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
@@ -310,8 +328,42 @@ CMakeFiles/Brandub.dir/Game.cpp.obj: C:/Users/Javier/Documentos/GitHub/Brandub/B
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
   C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Game.h \
   C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Bitboard.h \
+  C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Move.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset \
-  C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Move.h
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stack \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_stack.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/align.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bit \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/array \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/refwrap.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/concurrence.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_atomic.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h
 
 CMakeFiles/Brandub.dir/Move.cpp.obj: C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Move.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
@@ -452,7 +504,41 @@ CMakeFiles/Brandub.dir/Move.cpp.obj: C:/Users/Javier/Documentos/GitHub/Brandub/B
   C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Move.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset \
   C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Game.h \
-  C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Bitboard.h
+  C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Bitboard.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stack \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_stack.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/align.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bit \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/array \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/refwrap.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/concurrence.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_atomic.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h
 
 CMakeFiles/Brandub.dir/main.cpp.obj: C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/main.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
@@ -591,7 +677,42 @@ CMakeFiles/Brandub.dir/main.cpp.obj: C:/Users/Javier/Documentos/GitHub/Brandub/B
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
   C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Bitboard.h \
+  C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Move.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bitset \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stack \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_stack.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/align.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bit \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/array \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/refwrap.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/concurrence.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_atomic.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
+  C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h \
   C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Game.h
 
 
@@ -737,9 +858,15 @@ C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_stack.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc:
+
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/stdint.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h:
 
@@ -754,6 +881,8 @@ C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/atomicity.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h:
 
@@ -827,6 +956,8 @@ C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/functional_hash.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/string_view.tcc:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/string_conversions.h:
@@ -866,6 +997,8 @@ C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/streambuf_iterator.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h:
 
@@ -933,10 +1066,36 @@ C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 
 C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Bitboard.h:
 
-C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Game.h:
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stack:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/align.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bit:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_base.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/concurrence.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_atomic.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h:
 
 C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Game.cpp:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits:
+
+C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Game.h:
 
 C:/Users/Javier/Documentos/GitHub/Brandub/Brandub/Move.cpp:

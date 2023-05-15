@@ -23,6 +23,12 @@ bool Game::hasBlackWon() const{
 
 void Game::gameLoop() {
 
+    whiteWon = false;
+    blackWon = false;
+
+    bool blackIA = true;
+    bool whiteIA = true;
+
     std::cout << "WELCOME TO BRANDUB" << std::endl;
     std::cout << "The white player has the objective of putting the king in one of the 4 corners of the board" << std::endl;
     std::cout << "And the black player has the objective of trapping the king around 4 of his pieces" << std::endl;
@@ -33,6 +39,9 @@ void Game::gameLoop() {
     std::cout << "King:" << gameBoard.getKingChar() << std::endl;
     std::cout << std::endl;
 
+
+    //se agrega la primera movida.
+    //gameBoard.updateMoveHistory();
     
     while(!hasBlackWon() && !hasWhiteWon())
     {
@@ -42,16 +51,7 @@ void Game::gameLoop() {
         std::string colorTurnString = whiteTurn ? "white" : "black";
 
         //IA Turn
-        if(!whiteTurn)
-        {
-            //MoveRandom();
-            //whiteTurn = !whiteTurn;
-            //continue;d3
-
-            gameBoard.evaluateDangerInCell(gameBoard.getBitsBlack(), false);
-        }
-
-        std::string input;
+       std::string input;
 
         //variables that are filled in the code
         int inputCellIndex;
@@ -60,7 +60,6 @@ void Game::gameLoop() {
         std::bitset<56> pieceToMoveMask;
         std::bitset<56> destinationSquareMask;
 
-        //Selection of the piece to move
         while (true){
             std::cout << "Enter the square of a " << colorTurnString << " piece that you want to move: ";
             std::cin >> input;
@@ -94,11 +93,8 @@ void Game::gameLoop() {
             break;
         }
 
-
         std::cout << "You selected the: \"" << input << "\" square" << std::endl;
         std::cout << std::endl;
-
-
 
         while (true)
         {
@@ -137,11 +133,19 @@ void Game::gameLoop() {
         //Try to move the piece
         gameBoard.tryMove(turnMove);
 
+        /// AI FUNCTIONS DISABLED
+        //Bitboard bestMoveBoard;
+        //auto generatedMove = negamax(gameBoard,whiteTurn,2);
+        //gameBoard = generatedMove.move;
+        ///
+
         //Updates the moveHistory to check for draws
         gameBoard.updateMoveHistory();
 
         //change the turn
         whiteTurn = !whiteTurn;
+
+        std::cout << whiteWon <<std::endl;
 
         //Check for a winner
         if(gameBoard.getPossibleWinner() == Bitboard::CellType::WHITE)
@@ -149,20 +153,19 @@ void Game::gameLoop() {
         else if(gameBoard.getPossibleWinner() == Bitboard::CellType::BLACK)
             blackWon = true;
         else if(gameBoard.isDraw()){
-            whiteWon = true;
-            blackWon = true;
+            break;
         }
     }
 
+
     std::cout << "END OF THE MATCH" << std::endl;
+    gameBoard.print();
     if(whiteWon)
         std::cout << "WHITE WINS" << std::endl;
     else if(blackWon)
         std::cout << "BLACK WINS" << std::endl;
-    else if(blackWon & whiteWon)
+    else if(!blackWon && !whiteWon)
         std::cout << "DRAW!" << std::endl;
-    else
-        std::cout << "ERROR: no winners" << std::endl;
 }
 
 //it checks if the string input is in the correct format and also returns the cell index that the string references.
@@ -221,6 +224,59 @@ bool Game::areLegalMoves(int cellIndex, std::bitset<56> &legalMoveMask) {
     std::bitset<56> cellMask = indexToBitset(cellIndex);
 
     return areLegalMoves(cellMask, legalMoveMask);
+}
+
+Game::searchMove Game::negamax(const Bitboard& board, bool isWhiteTurn, int depth) {
+
+    Bitboard bestMove;
+    Game::searchMove bestResult;
+
+    // Check if the maximum depth has been reached or if the game is over
+    auto boardState = board.getCurrentBoardState();
+    if (depth == 0 || boardState != Bitboard::BoardState::PLAYING) {
+        switch (boardState) {
+            case Bitboard::BoardState::WHITE_WON:
+                bestResult.score = INT_MAX;
+                return bestResult;
+            case Bitboard::BoardState::BLACK_WON:
+                bestResult.score -INT_MAX;
+                return bestResult;
+            case Bitboard::BoardState::DRAW:
+                bestResult.score = 0;
+                return bestResult;
+            case Bitboard::BoardState::PLAYING:
+                bestResult.score = board.evaluateBoard(isWhiteTurn);
+                return bestResult;
+        }
+    }
+
+    float best_value = std::numeric_limits<float>::min();
+
+    // Generate all possible moves for the current player
+    auto moves = board.allLegalMoves(isWhiteTurn);
+
+    while (!moves.empty()) {
+        auto newBoard = moves.top();
+        moves.pop();
+        //newBoard.updateMoveHistory();
+        // Make the bestMove and evaluate the resulting game state
+
+        Game::searchMove newMove = negamax(newBoard, !isWhiteTurn, depth - 1);
+        newMove.score *= -1; // equivalent of negative negamax
+
+        // Update the best value and move if necessary
+        if(best_value < newMove.score)
+        {
+            bestMove = newBoard;
+            best_value = newMove.score;
+        }
+
+    }
+
+    bestResult.score = best_value;
+    bestResult.move = bestMove;
+
+    return bestResult;
 }
 
 std::bitset<56> Game::indexToBitset(int index) {

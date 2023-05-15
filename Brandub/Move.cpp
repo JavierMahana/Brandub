@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "Move.h"
+#include "Game.h"
 
 
 Move::Move(bool isWhiteTurnMove, const std::bitset<56> &fromMove, const std::bitset<56> &toMove) : whiteTurnMove(
